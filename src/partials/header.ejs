@@ -1,0 +1,55 @@
+<header class="site-header">
+  <a class="site-header__logo"
+     href="./index.html"
+     aria-label="Rule of Two home">
+    RULE OF TWO
+  </a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <ul class="site-nav__list">
+      <li>
+        <a href="./index.html"
+           data-i18n="nav.home"
+           <%- activePage === 'home' ? 'aria-current="page"' : '' %>>
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a href="./services.html"
+           data-i18n="nav.services"
+           <%- activePage === 'services' ? 'aria-current="page"' : '' %>>
+          Services
+        </a>
+      </li>
+
+      <li>
+        <a href="./cases.html"
+           data-i18n="nav.cases"
+           <%- activePage === 'cases' ? 'aria-current="page"' : '' %>>
+          Case Studies
+        </a>
+      </li>
+
+      <li>
+        <a href="./index.html#about" data-i18n="nav.about">
+          About
+        </a>
+      </li>
+
+      <li>
+        <a href="./contact.html"
+           data-i18n="nav.contact"
+           <%- activePage === 'contact' ? 'aria-current="page"' : '' %>>
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <a class="site-header__cta"
+     href="./contact.html"
+     data-i18n="common.startProject">
+    Start a Project
+  </a>
+</header>

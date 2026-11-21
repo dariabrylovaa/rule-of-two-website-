@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Explore software development, cloud and IT consulting services by Rule of Two."
+  >
+  <title>Services | Rule of Two</title>
+</head>
+
+<body>
+  <%- include('./src/partials/header.ejs', { activePage: 'services' }) %>
+
+  <main>
+    <!-- HERO -->
+    <section class="services-hero" aria-labelledby="services-hero-title">
+      <p data-i18n="servicePage.label">Our Services</p>
+
+      <h1 id="services-hero-title" data-i18n="servicePage.title">
+        The expertise to move you forward.
+      </h1>
+
+      <p data-i18n="servicePage.description">
+        One technology partner. Every stage of your journey.
+        We connect strategy, design and engineering to turn
+        complex challenges into powerful digital solutions.
+      </p>
+    </section>
+
+    <!-- SERVICE CATALOG -->
+    <section class="services-catalog" aria-labelledby="catalog-title">
+      <p data-i18n="servicePage.catalogLabel">
+        Built for Your Business
+      </p>
+
+      <h2 id="catalog-title" data-i18n="servicePage.catalogTitle">
+        Six capabilities. One focused team.
+      </h2>
+
+      <div class="services-catalog__list">
+        <article class="services-catalog__card">
+          <h3 data-i18n="servicePage.software.title">
+            Software development
+          </h3>
+          <p data-i18n="servicePage.software.description">
+            Custom web applications, enterprise platforms and APIs.
+            Thoughtful architecture, reliable delivery and software
+            your team loves using.
+          </p>
+          <a href="./contact.html">Explore service</a>
+        </article>
+
+        <article class="services-catalog__card">
+          <h3 data-i18n="servicePage.mobile.title">
+            Mobile development
+          </h3>
+          <p data-i18n="servicePage.mobile.description">
+            Native-quality iOS and Android experiences.
+            From product design to store release, we create
+            intuitive apps that feel right.
+          </p>
+          <a href="./contact.html">Explore service</a>
+        </article>
+
+        <article class="services-catalog__card">
+          <h3 data-i18n="servicePage.ai.title">
+            AI &amp; machine learning
+          </h3>
+          <p data-i18n="servicePage.ai.description">
+            Intelligent assistants, process automation and
+            predictive models. Practical AI, grounded in
+            your data and business needs.
+          </p>
+          <a href="./contact.html">Explore service</a>
+        </article>
+
+        <article class="services-catalog__card">
+          <h3 data-i18n="servicePage.cloud.title">
+            Cloud &amp; DevOps
+          </h3>
+          <p data-i18n="servicePage.cloud.description">
+            Resilient infrastructure, automated delivery and
+            observability. Secure cloud foundations built to
+            scale without unnecessary complexity.
+          </p>
+          <a href="./contact.html">Explore service</a>
+        </article>
+
+        <article class="services-catalog__card">
+          <h3 data-i18n="servicePage.analytics.title">
+            Data &amp; analytics
+          </h3>
+          <p data-i18n="servicePage.analytics.description">
+            Connect your data, make it trustworthy and put it
+            to work. Clear dashboards, robust pipelines and
+            actionable business intelligence.
+          </p>
+          <a href="./contact.html">Explore service</a>
+        </article>
+
+        <article class="services-catalog__card">
+          <h3 data-i18n="servicePage.consulting.title">
+            IT consulting
+          </h3>
+          <p data-i18n="servicePage.consulting.description">
+            Technology strategy, architecture reviews and
+            product roadmaps. Independent expertise to help
+            you choose the right next step.
+          </p>
+          <a href="./contact.html">Explore service</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section class="process" aria-labelledby="process-title">
+      <p data-i18n="servicePage.processLabel">How We Work</p>
+
+      <h2 id="process-title" data-i18n="servicePage.processTitle">
+        Clarity at every step.
+      </h2>
+
+      <p>
+        A collaborative process, with you in the loop
+        from the very beginning.
+      </p>
+
+      <ol class="process__list">
+        <li>
+          <h3>Discover</h3>
+          <p>
+            We align on your goals, users and constraints.
+            The outcome: a clear problem statement and
+            a practical roadmap.
+          </p>
+          <p>Shared brief &amp; roadmap</p>
+        </li>
+
+        <li>
+          <h3>Design</h3>
+          <p>
+            We shape the experience and architecture together.
+            Prototypes make the solution tangible before
+            development begins.
+          </p>
+          <p>Prototype &amp; technical plan</p>
+        </li>
+
+        <li>
+          <h3>Build</h3>
+          <p>
+            We deliver in focused iterations, with regular
+            demos, rigorous testing and transparent progress
+            at every step.
+          </p>
+          <p>Tested, production-ready software</p>
+        </li>
+
+        <li>
+          <h3>Evolve</h3>
+          <p>
+            We launch, monitor and refine. Your product
+            keeps improving as your business and users'
+            needs grow.
+          </p>
+          <p>Launch &amp; ongoing partnership</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- TOOLKIT -->
+    <section class="toolkit" aria-labelledby="toolkit-title">
+      <p data-i18n="servicePage.toolkitLabel">Our Toolkit</p>
+
+      <h2 id="toolkit-title" data-i18n="servicePage.toolkitTitle">
+        Modern tools. Thoughtful choices.
+      </h2>
+
+      <p>
+        We choose technology for your needs,
+        not the other way around.
+      </p>
+
+      <div class="toolkit__categories">
+        <section>
+          <h3>Frontend &amp; Mobile</h3>
+          <ul>
+            <li>React</li>
+            <li>Next.js</li>
+            <li>TypeScript</li>
+            <li>Flutter</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Backend &amp; Data</h3>
+          <ul>
+            <li>Node.js</li>
+            <li>Python</li>
+            <li>PostgreSQL</li>
+            <li>dbt</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Cloud &amp; AI</h3>
+          <ul>
+            <li>AWS</li>
+            <li>Azure</li>
+            <li>Docker</li>
+            <li>LangChain</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta" aria-labelledby="cta-title">
+      <h2 id="cta-title" data-i18n="cta.title">
+        Great things start with two.
+      </h2>
+      <p data-i18n="cta.description">
+        Bring the vision. We'll bring the expertise.
+        Let's build what's next.
+      </p>
+      <a href="./contact.html" data-i18n="common.startProject">
+        Start a Project
+      </a>
+    </section>
+  </main>
+
+  <%- include('./src/partials/footer.ejs') %>
+</body>
+</html>

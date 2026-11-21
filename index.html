@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Rule of Two IT consulting and software development services."
+  >
+  <title>Home | Rule of Two</title>
+</head>
+
+<body>
+  <%- include('./src/partials/header.ejs', { activePage: 'home' }) %>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__content">
+        <p class="hero__label" data-i18n="hero.label">
+          IT Consulting &amp; Software Development
+        </p>
+
+        <h1 id="hero-title" data-i18n="hero.title">
+          Two Minds. One Powerful Solution.
+        </h1>
+
+        <p class="hero__description" data-i18n="hero.description">
+          Your vision meets our expertise. Together, we transform
+          ambitious ideas into powerful digital solutions.
+        </p>
+
+        <div class="hero__actions">
+          <a href="./contact.html" data-i18n="common.startProject">
+            Start a Project
+          </a>
+          <a href="./services.html" data-i18n="hero.exploreServices">
+            Explore Our Services
+          </a>
+        </div>
+
+        <ul class="hero__stats">
+          <li>
+            <strong>100+</strong>
+            <span data-i18n="hero.projects">Projects Delivered</span>
+          </li>
+          <li>
+            <strong>8+</strong>
+            <span data-i18n="hero.experience">Years of Experience</span>
+          </li>
+          <li>
+            <strong>50+</strong>
+            <span data-i18n="hero.clients">Happy Clients</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hero__image">
+        <picture>
+          <source
+            type="image/webp"
+            srcset="./images/hero-360.webp 360w,
+                    ./images/hero-666.webp 666w"
+            sizes="(max-width: 767px) 100vw, 666px"
+          >
+          <img
+            src="./images/hero.png"
+            alt="Abstract blue intertwined 3D rings"
+            width="666"
+            height="444"
+            fetchpriority="high"
+          >
+        </picture>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY BRANDS -->
+    <section class="partners" aria-label="Technology brands">
+      <ul class="partners__list">
+        <li>Google</li>
+        <li>Microsoft</li>
+        <li>AWS</li>
+        <li>Slack</li>
+        <li>Spotify</li>
+        <li>Notion</li>
+        <li>Figma</li>
+      </ul>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" aria-labelledby="services-title">
+      <p data-i18n="services.label">Our Services</p>
+
+      <h2 id="services-title" data-i18n="services.title">
+        Comprehensive IT Solutions for Your Business
+      </h2>
+
+      <p data-i18n="services.description">
+        From strategy to implementation, we provide end-to-end
+        IT consulting and development services tailored to your goals.
+      </p>
+
+      <div class="services__list">
+        <article class="services__card">
+          <h3 data-i18n="services.software.title">
+            Software Development
+          </h3>
+          <p data-i18n="services.software.description">
+            Custom web and mobile applications that drive your business forward.
+          </p>
+          <a href="./services.html">Explore service</a>
+        </article>
+
+        <article class="services__card">
+          <h3 data-i18n="services.cloud.title">Cloud Solutions</h3>
+          <p data-i18n="services.cloud.description">
+            Scalable and secure cloud infrastructure for any business size.
+          </p>
+          <a href="./services.html">Explore service</a>
+        </article>
+
+        <article class="services__card">
+          <h3 data-i18n="services.ai.title">
+            AI &amp; Machine Learning
+          </h3>
+          <p data-i18n="services.ai.description">
+            Intelligent solutions to automate processes
+            and unlock new opportunities.
+          </p>
+          <a href="./services.html">Explore service</a>
+        </article>
+
+        <article class="services__card">
+          <h3 data-i18n="services.consulting.title">
+            IT Consulting
+          </h3>
+          <p data-i18n="services.consulting.description">
+            Strategic advice to help you make the right
+            technology decisions and grow.
+          </p>
+          <a href="./services.html">Explore service</a>
+        </article>
+      </div>
+
+      <a href="./services.html">View All Services</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <p data-i18n="about.label">About Us</p>
+
+      <h2 id="about-title" data-i18n="about.title">
+        Your Vision + Our Expertise = One Powerful Solution
+      </h2>
+
+      <p data-i18n="about.description">
+        We are an IT consulting company that helps businesses turn
+        ambitious ideas into real solutions. Our strength lies in a
+        dual partnership: combining your industry knowledge and
+        vision with our technology expertise.
+      </p>
+
+<div class="about__formula" role="group" aria-label="Our partnership approach">        <p>
+          <strong>Your Vision</strong>
+          <span>Business goals, industry knowledge and direction</span>
+        </p>
+        <p>
+          <strong>Our Expertise</strong>
+          <span>Technology, architecture and business acumen</span>
+        </p>
+        <p><strong>One Powerful Solution</strong></p>
+      </div>
+
+      <a href="./contact.html">Learn More About Us</a>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits" aria-labelledby="benefits-title">
+      <p data-i18n="benefits.label">Why Rule of Two</p>
+
+      <h2 id="benefits-title" data-i18n="benefits.title">
+        Small team. Serious impact.
+      </h2>
+
+      <p data-i18n="benefits.description">
+        We combine deep technical expertise with strategic
+        thinking to deliver solutions that truly matter.
+      </p>
+
+      <div class="benefits__list">
+        <article class="benefits__card">
+          <h3 data-i18n="benefits.collaboration.title">
+            Direct collaboration
+          </h3>
+          <p>
+            Work with the people building your product.
+            Clear communication, honest feedback and no handoffs.
+          </p>
+        </article>
+
+        <article class="benefits__card">
+          <h3 data-i18n="benefits.engineering.title">
+            Engineering with intent
+          </h3>
+          <p>
+            Clean architecture, thoughtful testing and security
+            by design. Quality that lasts beyond launch.
+          </p>
+        </article>
+
+        <article class="benefits__card">
+          <h3 data-i18n="benefits.growth.title">
+            Built for the long run
+          </h3>
+          <p>
+            A partner from discovery to growth.
+            We build adaptable foundations, not short-term workarounds.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FEATURED CASE STUDIES -->
+    <section class="case-studies" aria-labelledby="cases-title">
+      <p data-i18n="cases.label">Case Studies</p>
+
+      <h2 id="cases-title" data-i18n="cases.title">
+        Ideas Turned Into Impact
+      </h2>
+
+      <p data-i18n="cases.description">
+        Explore three sample concepts that demonstrate our approach.
+        These are illustrative projects, not verified client
+        engagements or results.
+      </p>
+
+      <div class="case-studies__list">
+        <!-- NOVA -->
+        <article class="project-card">
+          <picture class="project-card__picture">
+            <source
+              type="image/webp"
+              srcset="./images/nova-420.webp 420w,
+                      ./images/nova-840.webp 840w"
+              sizes="(max-width: 767px) 100vw, 420px"
+            >
+            <img
+              class="project-card__image"
+              src="./images/nova.png"
+              alt="Nova Finance dashboard with financial charts"
+              width="411"
+              height="260"
+              loading="lazy"
+            >
+          </picture>
+
+          <div class="project-card__content">
+            <p class="project-card__category">Software</p>
+            <p class="project-card__type">Sample Concept</p>
+            <h3 data-i18n="cases.nova.title">
+              A clearer view of finance
+            </h3>
+            <p data-i18n="cases.nova.description">
+              A unified workspace for cash flow, reporting
+              and smarter financial decisions.
+            </p>
+            <p class="project-card__technologies">
+              React · Node.js · PostgreSQL
+            </p>
+            <a href="./cases.html#nova">View case study</a>
+          </div>
+        </article>
+
+        <!-- PULSE -->
+        <article class="project-card">
+          <picture class="project-card__picture">
+            <source
+              type="image/webp"
+              srcset="./images/pulse-420.webp 420w,
+                      ./images/pulse-840.webp 840w"
+              sizes="(max-width: 767px) 100vw, 420px"
+            >
+            <img
+              class="project-card__image"
+              src="./images/pulse.png"
+              alt="Pulse Care appointment scheduling interface"
+              width="411"
+              height="260"
+              loading="lazy"
+            >
+          </picture>
+
+          <div class="project-card__content">
+            <p class="project-card__category">Mobile</p>
+            <p class="project-card__type">Sample Concept</p>
+            <h3 data-i18n="cases.pulse.title">
+              Care, without the friction
+            </h3>
+            <p data-i18n="cases.pulse.description">
+              An appointment and care companion that
+              keeps patients connected to their providers.
+            </p>
+            <p class="project-card__technologies">
+              Flutter · Firebase · FHIR
+            </p>
+            <a href="./cases.html#pulse">View case study</a>
+          </div>
+        </article>
+
+        <!-- ATLAS -->
+        <article class="project-card">
+          <picture class="project-card__picture">
+            <source
+              type="image/webp"
+              srcset="./images/atlas-420.webp 420w,
+                      ./images/atlas-840.webp 840w"
+              sizes="(max-width: 767px) 100vw, 420px"
+            >
+            <img
+              class="project-card__image"
+              src="./images/atlas.png"
+              alt="Atlas AI knowledge assistant interface"
+              width="411"
+              height="260"
+              loading="lazy"
+            >
+          </picture>
+
+          <div class="project-card__content">
+            <p class="project-card__category">AI</p>
+            <p class="project-card__type">Sample Concept</p>
+            <h3 data-i18n="cases.atlas.title">
+              Knowledge that works for you
+            </h3>
+            <p data-i18n="cases.atlas.description">
+              A secure AI knowledge assistant that turns
+              scattered information into useful answers.
+            </p>
+            <p class="project-card__technologies">
+              Python · LangChain · Azure
+            </p>
+            <a href="./cases.html#atlas">View case study</a>
+          </div>
+        </article>
+      </div>
+
+      <a href="./cases.html">View All Case Studies</a>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta" aria-labelledby="cta-title">
+      <h2 id="cta-title" data-i18n="cta.title">
+        Great things start with two.
+      </h2>
+      <p data-i18n="cta.description">
+        Bring the vision. We'll bring the expertise.
+        Let's build what's next.
+      </p>
+      <a href="./contact.html" data-i18n="common.startProject">
+        Start a Project
+      </a>
+    </section>
+  </main>
+
+  <%- include('./src/partials/footer.ejs') %>
+</body>
+</html>

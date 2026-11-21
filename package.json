@@ -1,0 +1,19 @@
+{
+  "name": "rule-of-two-website-",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "ejs": "^7.0.2",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0",
+    "vite": "^8.3.6"
+  }
+}

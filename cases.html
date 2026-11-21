@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Explore sample software, mobile, AI and IT consulting case studies by Rule of Two."
+  >
+  <title>Case Studies | Rule of Two</title>
+</head>
+
+<body>
+  <%- include('./src/partials/header.ejs', { activePage: 'cases' }) %>
+
+  <main>
+    <!-- HERO -->
+    <section class="cases-hero" aria-labelledby="cases-hero-title">
+      <p data-i18n="casePage.label">Case Studies</p>
+
+      <h1 id="cases-hero-title" data-i18n="casePage.title">
+        Different challenges. Shared ambition.
+      </h1>
+
+      <p data-i18n="casePage.description">
+        A look at what thoughtful technology can make possible.
+        Explore sample projects across software, mobile, AI,
+        cloud, analytics and strategy.
+      </p>
+    </section>
+
+    <!-- PROJECT CATALOG -->
+    <section class="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Explore Our Projects</h2>
+
+      <div
+        class="projects__filters"
+        role="group"
+        aria-label="Project categories"
+      >
+        <button type="button" data-filter="all" aria-pressed="true">
+          All Projects
+        </button>
+        <button type="button" data-filter="software" aria-pressed="false">
+          Software
+        </button>
+        <button type="button" data-filter="mobile" aria-pressed="false">
+          Mobile
+        </button>
+        <button type="button" data-filter="ai" aria-pressed="false">
+          AI
+        </button>
+        <button type="button" data-filter="cloud" aria-pressed="false">
+          Cloud
+        </button>
+        <button type="button" data-filter="analytics" aria-pressed="false">
+          Analytics
+        </button>
+        <button type="button" data-filter="consulting" aria-pressed="false">
+          Consulting
+        </button>
+      </div>
+
+      <p class="projects__disclaimer">
+        Sample content. All projects below are illustrative concepts.
+        Product names, interfaces and metrics are fictional,
+        not verified client results.
+      </p>
+
+      <div class="projects__list">
+        <!-- NOVA -->
+        <article
+          class="project-card"
+          id="nova"
+          data-category="software"
+          itemscope
+          itemtype="https://schema.org/CreativeWork"
+        >
+          <picture class="project-card__picture">
+            <source
+              type="image/webp"
+              srcset="./images/nova-420.webp 420w,
+                      ./images/nova-840.webp 840w"
+              sizes="(max-width: 767px) 100vw, 420px"
+            >
+            <img
+              class="project-card__image"
+              src="./images/nova.png"
+              alt="Nova Finance dashboard with financial charts"
+              width="411"
+              height="260"
+              loading="lazy"
+              itemprop="image"
+            >
+          </picture>
+
+          <div class="project-card__content">
+            <p class="project-card__category">Software</p>
+            <p class="project-card__type">Sample Concept</p>
+            <h3 itemprop="name">A clearer view of finance</h3>
+            <p itemprop="description">
+              A unified workspace for cash flow, reporting
+              and smarter financial decisions.
+            </p>
+            <p class="project-card__technologies">
+              React · Node.js · PostgreSQL
+            </p>
+            <a href="#nova">View case study</a>
+          </div>
+        </article>
+
+        <!-- PULSE -->
+        <article
+          class="project-card"
+          id="pulse"
+          data-category="mobile"
+          itemscope
+          itemtype="https://schema.org/CreativeWork"
+        >
+          <picture class="project-card__picture">
+            <source
+              type="image/webp"
+              srcset="./images/pulse-420.webp 420w,
+                      ./images/pulse-840.webp 840w"
+              sizes="(max-width: 767px) 100vw, 420px"
+            >
+            <img
+              class="project-card__image"
+              src="./images/pulse.png"
+              alt="Pulse Care appointment scheduling interface"
+              width="411"
+              height="260"
+              loading="lazy"
+              itemprop="image"
+            >
+          </picture>
+
+          <div class="project-card__content">
+            <p class="project-card__category">Mobile</p>
+            <p class="project-card__type">Sample Concept</p>
+            <h3 itemprop="name">Care, without the friction</h3>
+            <p itemprop="description">
+              An appointment and care companion that
+              keeps patients connected to their providers.
+            </p>
+            <p class="project-card__technologies">
+              Flutter · Firebase · FHIR
+            </p>
+            <a href="#pulse">View case study</a>
+          </div>
+        </article>
+
+        <!-- ATLAS -->
+        <article
+          class="project-card"
+          id="atlas"
+          data-category="ai"
+          itemscope
+          itemtype="https://schema.org/CreativeWork"
+        >
+          <picture class="project-card__picture">
+            <source
+              type="image/webp"
+              srcset="./images/atlas-420.webp 420w,
+                      ./images/atlas-840.webp 840w"
+              sizes="(max-width: 767px) 100vw, 420px"
+            >
+            <img
+              class="project-card__image"
+              src="./images/atlas.png"
+              alt="Atlas AI knowledge assistant interface"
+              width="411"
+              height="260"
+              loading="lazy"
+              itemprop="image"
+            >
+          </picture>
+
+          <div class="project-card__content">
+            <p class="project-card__category">AI</p>
+            <p class="project-card__type">Sample Concept</p>
+            <h3 itemprop="name">Knowledge that works for you</h3>
+            <p itemprop="description">
+              A secure AI knowledge assistant that turns
+              scattered information into useful answers.
+            </p>
+            <p class="project-card__technologies">
+              Python · LangChain · Azure
+            </p>
+            <a href="#atlas">View case study</a>
+          </div>
+        </article>
+
+        <!-- ORBIT -->
+        <article
+          class="project-card"
+          id="orbit"
+          data-category="cloud"
+          itemscope
+          itemtype="https://schema.org/CreativeWork"
+        >
+          <picture class="project-card__picture">
+            <source
+              type="image/webp"
+              srcset="./images/orbit-420.webp 420w,
+                      ./images/orbit-840.webp 840w"
+              sizes="(max-width: 767px) 100vw, 420px"
+            >
+            <img
+              class="project-card__image"
+              src="./images/orbit.png"
+              alt="Orbit cloud infrastructure monitoring dashboard"
+              width="411"
+              height="260"
+              loading="lazy"
+              itemprop="image"
+            >
+          </picture>
+
+          <div class="project-card__content">
+            <p class="project-card__category">Cloud</p>
+            <p class="project-card__type">Sample Concept</p>
+            <h3 itemprop="name">Infrastructure built to scale</h3>
+            <p itemprop="description">
+              A cloud operations platform with observability
+              and reliability built into every layer.
+            </p>
+            <p class="project-card__technologies">
+              AWS · Kubernetes · Terraform
+            </p>
+            <a href="#orbit">View case study</a>
+          </div>
+        </article>
+
+        <!-- SIGNAL -->
+        <article
+          class="project-card"
+          id="signal"
+          data-category="analytics"
+          itemscope
+          itemtype="https://schema.org/CreativeWork"
+        >
+          <picture class="project-card__picture">
+            <source
+              type="image/webp"
+              srcset="./images/signal-420.webp 420w,
+                      ./images/signal-840.webp 840w"
+              sizes="(max-width: 767px) 100vw, 420px"
+            >
+            <img
+              class="project-card__image"
+              src="./images/signal.png"
+              alt="Signal analytics dashboard with performance charts"
+              width="411"
+              height="260"
+              loading="lazy"
+              itemprop="image"
+            >
+          </picture>
+
+          <div class="project-card__content">
+            <p class="project-card__category">Analytics</p>
+            <p class="project-card__type">Sample Concept</p>
+            <h3 itemprop="name">From data to direction</h3>
+            <p itemprop="description">
+              An analytics hub that connects product signals
+              with everyday business decisions.
+            </p>
+            <p class="project-card__technologies">
+              Next.js · Python · dbt
+            </p>
+            <a href="#signal">View case study</a>
+          </div>
+        </article>
+
+        <!-- SHIFT -->
+        <article
+          class="project-card"
+          id="shift"
+          data-category="consulting"
+          itemscope
+          itemtype="https://schema.org/CreativeWork"
+        >
+          <picture class="project-card__picture">
+            <source
+              type="image/webp"
+              srcset="./images/shift-420.webp 420w,
+                      ./images/shift-840.webp 840w"
+              sizes="(max-width: 767px) 100vw, 420px"
+            >
+            <img
+              class="project-card__image"
+              src="./images/shift.png"
+              alt="Shift digital strategy planning interface"
+              width="411"
+              height="260"
+              loading="lazy"
+              itemprop="image"
+            >
+          </picture>
+
+          <div class="project-card__content">
+            <p class="project-card__category">Consulting</p>
+            <p class="project-card__type">Sample Concept</p>
+            <h3 itemprop="name">A roadmap for what's next</h3>
+            <p itemprop="description">
+              A practical digital strategy and architecture
+              blueprint for a growing retail business.
+            </p>
+            <p class="project-card__technologies">
+              Architecture · Research · Roadmap
+            </p>
+            <a href="#shift">View case study</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" aria-labelledby="testimonials-title">
+      <p>The Partnership Experience</p>
+
+      <h2 id="testimonials-title">
+        Good work starts with trust.
+      </h2>
+
+      <p>
+        Illustrative testimonials showing the kind of collaboration
+        we aim for. Sample content, not actual client endorsements.
+      </p>
+
+      <div class="testimonials__list">
+        <figure class="testimonial">
+          <p>Sample Testimonial</p>
+          <blockquote>
+            <p>
+              They translated a complex idea into a clear,
+              practical plan. Every conversation moved us forward.
+            </p>
+          </blockquote>
+          <figcaption>
+            Product lead · Software concept
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <p>Sample Testimonial</p>
+          <blockquote>
+            <p>
+              It felt like one team. The balance of technical
+              depth and thoughtful communication made the difference.
+            </p>
+          </blockquote>
+          <figcaption>
+            Founder · Mobile concept
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <p>Sample Testimonial</p>
+          <blockquote>
+            <p>
+              They asked the right questions before writing
+              the first line of code. That clarity shaped everything.
+            </p>
+          </blockquote>
+          <figcaption>
+            Operations lead · AI concept
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta" aria-labelledby="cta-title">
+      <h2 id="cta-title" data-i18n="cta.title">
+        Great things start with two.
+      </h2>
+      <p data-i18n="cta.description">
+        Bring the vision. We'll bring the expertise.
+        Let's build what's next.
+      </p>
+      <a href="./contact.html" data-i18n="common.startProject">
+        Start a Project
+      </a>
+    </section>
+  </main>
+
+  <%- include('./src/partials/footer.ejs') %>
+</body>
+</html>
