@@ -1,0 +1,63 @@
+// =============================================================================
+// COMPONENTS / BUTTON
+// .button + --primary | --outline | --arrow | --block-mobile
+// =============================================================================
+@use '../abstracts' as *;
+
+.button {
+  @extend %pill;
+  @extend %type-small;
+
+  min-height: rem(44px);
+  padding-inline: space(5);
+  font-weight: weight(semibold);
+  line-height: 1;
+  cursor: pointer;
+
+  @include transition(background-color, border-color, color, transform);
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &--primary {
+    color: token(on-accent);
+    background-color: token(accent);
+
+    @include hover {
+      background-color: token(accent-hover);
+    }
+  }
+
+  &--outline {
+    border-color: token(accent);
+    color: token(text);
+    background-color: transparent;
+
+    @include hover {
+      background-color: token(accent-soft);
+    }
+  }
+
+  &--sm {
+    min-height: rem(38px);
+    padding-inline: space(4);
+  }
+
+  // Trailing arrow "→" that nudges on hover
+  &--arrow::after {
+    content: '\2192' / '';
+
+    @include transition(transform);
+  }
+
+  &--arrow:hover::after {
+    transform: translateX(3px);
+  }
+
+  &--block-mobile {
+    @include respond-below(md) {
+      width: 100%;
+    }
+  }
+}

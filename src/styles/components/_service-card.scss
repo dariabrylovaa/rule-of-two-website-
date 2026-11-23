@@ -1,0 +1,47 @@
+// =============================================================================
+// COMPONENTS / SERVICE CARD
+// Home (4 cards) and Services (6 cards, --large).
+// =============================================================================
+@use '../abstracts' as *;
+
+.service-card {
+  @extend %surface-card;
+  @include flex-column(space(3));
+
+  padding: fluid(20px, 24px);
+
+  @include transition(border-color, transform);
+
+  @include hover {
+    border-color: token(accent);
+    transform: translateY(-4px);
+  }
+
+  &:focus-within {
+    border-color: token(accent);
+  }
+
+  &__icon {
+    margin-bottom: space(2);
+    color: token(accent);
+  }
+
+  &__title {
+    @extend %type-h4;
+  }
+
+  &__text {
+    @extend %type-small;
+
+    flex-grow: 1;
+  }
+
+  &__link {
+    margin-top: space(2);
+  }
+
+  &--large &__title {
+    font-size: fluid(18px, 22px);
+    font-weight: weight(regular);
+  }
+}

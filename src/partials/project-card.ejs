@@ -1,0 +1,40 @@
+<%#
+  Project card. Params: id, link, category, alt, title, text, tech,
+  anchor (optional: adds id, data-category and schema.org microdata).
+%>
+<article class="project-card col col--md-6 col--lg-4 u-reveal"<% if (locals.anchor) { %>
+         id="<%= id %>"
+         data-category="<%= category.toLowerCase() %>"
+         itemscope
+         itemtype="https://schema.org/CreativeWork"<% } %>>
+  <picture class="project-card__picture">
+    <source
+      type="image/webp"
+      srcset="./images/<%= id %>-420.webp 420w,
+              ./images/<%= id %>-840.webp 840w"
+      sizes="(min-width: 1280px) 400px, (min-width: 768px) calc(50vw - 52px), calc(100vw - 40px)"
+    >
+    <img
+      class="project-card__image"
+      src="./images/<%= id %>.png"
+      alt="<%= alt %>"
+      width="411"
+      height="260"
+      loading="lazy"<% if (locals.anchor) { %>
+      itemprop="image"<% } %>
+    >
+  </picture>
+
+  <div class="project-card__content">
+    <div class="project-card__meta">
+      <p class="project-card__category"><%= category %></p>
+      <p class="project-card__type">Sample Concept</p>
+    </div>
+    <h3 class="project-card__title"<% if (locals.anchor) { %> itemprop="name"<% } %>><%= title %></h3>
+    <p class="project-card__text"<% if (locals.anchor) { %> itemprop="description"<% } %>><%= text %></p>
+    <p class="project-card__technologies"><%= tech %></p>
+    <a class="link-arrow project-card__link" href="<%= link %>">
+      View case study<span class="u-visually-hidden">: <%= title %></span>
+    </a>
+  </div>
+</article>

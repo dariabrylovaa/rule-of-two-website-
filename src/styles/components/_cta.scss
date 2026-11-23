@@ -1,0 +1,25 @@
+// =============================================================================
+// COMPONENTS / CTA
+// "Great things start with two." banner at the bottom of the pages.
+// =============================================================================
+@use '../abstracts' as *;
+
+.cta {
+  &__inner {
+    @include flex(column, $align: flex-start, $gap: space(6));
+
+    @include respond-to(md) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    font-size: fluid(32px, 48px);
+  }
+
+  &__text {
+    margin-top: space(3);
+  }
+}

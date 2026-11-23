@@ -1,48 +1,84 @@
 <footer class="site-footer">
-  <p>
-    <strong>RULE OF TWO</strong>
-  </p>
-
-  <p data-i18n="footer.description">
-    IT Consulting &amp; Software Development.
-  </p>
-
-  <p data-i18n="footer.tagline">
-    Two minds. One powerful solution.
-  </p>
-
-  <nav aria-label="Footer navigation">
-    <ul>
-      <li>
-        <a href="./index.html" data-i18n="nav.home">Home</a>
-      </li>
-      <li>
-        <a href="./services.html" data-i18n="nav.services">
-          Services
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="logo" href="./index.html" aria-label="Rule of Two home">
+          <%- include('./logo-mark.ejs') %>
+          <span class="logo__text" aria-hidden="true">
+            <span class="logo__name">Rule of Two</span>
+            <span class="logo__tagline">IT Consulting</span>
+          </span>
         </a>
-      </li>
-      <li>
-        <a href="./cases.html" data-i18n="nav.cases">
-          Case Studies
-        </a>
-      </li>
-      <li>
-        <a href="./contact.html" data-i18n="nav.contact">
-          Contact
-        </a>
-      </li>
-    </ul>
-  </nav>
 
-  <address>
-    <a href="mailto:hello@ruleoftwo.dev">
-      hello@ruleoftwo.dev
-    </a>
-  </address>
+        <p class="site-footer__text">
+          <span data-i18n="footer.description">
+            IT Consulting &amp; Software Development.
+          </span>
+          <br>
+          <span data-i18n="footer.tagline">
+            Two minds. One powerful solution.
+          </span>
+        </p>
+      </div>
 
-  <p>Open to ambitious ideas</p>
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <ul class="site-footer__list">
+          <li>
+            <a class="site-footer__link" href="./index.html" data-i18n="nav.home">
+              Home
+            </a>
+          </li>
+          <li>
+            <a class="site-footer__link" href="./services.html" data-i18n="nav.services">
+              Services
+            </a>
+          </li>
+          <li>
+            <a class="site-footer__link" href="./cases.html" data-i18n="nav.cases">
+              Case Studies
+            </a>
+          </li>
+          <li>
+            <a class="site-footer__link" href="./contact.html" data-i18n="nav.contact">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-  <p data-i18n="footer.copyright">
-    © 2026 RULE OF TWO. All rights reserved.
-  </p>
+      <div class="site-footer__contact">
+        <address>
+          <a class="site-footer__link" href="mailto:hello@ruleoftwo.dev">
+            hello@ruleoftwo.dev
+          </a>
+        </address>
+
+        <ul class="site-footer__social">
+          <li>
+            <a class="link-arrow" href="https://www.linkedin.com/" rel="noopener" target="_blank">
+              LinkedIn<span class="u-visually-hidden"> (opens in a new tab)</span>
+            </a>
+          </li>
+          <li>
+            <a class="link-arrow" href="https://github.com/" rel="noopener" target="_blank">
+              GitHub<span class="u-visually-hidden"> (opens in a new tab)</span>
+            </a>
+          </li>
+        </ul>
+
+        <p class="site-footer__status">Open to ambitious ideas</p>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p data-i18n="footer.copyright">
+        © 2026 RULE OF TWO. All rights reserved.
+      </p>
+
+      <ul class="site-footer__legal">
+        <li><a class="site-footer__link" href="./contact.html">Privacy Policy</a></li>
+        <li><a class="site-footer__link" href="./contact.html">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>

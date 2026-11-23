@@ -1,366 +1,343 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta
-    name="description"
-    content="Rule of Two IT consulting and software development services."
-  >
-  <title>Home | Rule of Two</title>
+  <%- include('./src/partials/head.ejs', {
+    title: 'Home',
+    description: 'Rule of Two IT consulting and software development services.'
+  }) %>
 </head>
 
 <body>
   <%- include('./src/partials/header.ejs', { activePage: 'home' }) %>
 
-  <main>
+  <main id="main">
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__content">
-        <p class="hero__label" data-i18n="hero.label">
-          IT Consulting &amp; Software Development
-        </p>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow u-animate u-animate--fade-in" data-i18n="hero.label">
+            IT Consulting &amp; Software Development
+          </p>
 
-        <h1 id="hero-title" data-i18n="hero.title">
-          Two Minds. One Powerful Solution.
-        </h1>
+          <h1 class="hero__title u-animate u-animate--slide-up u-animate--delay-1"
+              id="hero-title"
+              data-i18n="hero.title">
+            <span class="hero__title-line">Two minds</span>
+            <span class="hero__title-line">
+              <span class="hero__title-accent">One</span> powerful
+            </span>
+            <span class="hero__title-line">solution.</span>
+          </h1>
 
-        <p class="hero__description" data-i18n="hero.description">
-          Your vision meets our expertise. Together, we transform
-          ambitious ideas into powerful digital solutions.
-        </p>
+          <p class="hero__description u-animate u-animate--slide-up u-animate--delay-2"
+             data-i18n="hero.description">
+            Your vision meets our expertise. Together, we transform
+            ambitious ideas into powerful digital solutions.
+          </p>
 
-        <div class="hero__actions">
-          <a href="./contact.html" data-i18n="common.startProject">
-            Start a Project
-          </a>
-          <a href="./services.html" data-i18n="hero.exploreServices">
-            Explore Our Services
-          </a>
+          <div class="hero__actions u-animate u-animate--slide-up u-animate--delay-3">
+            <a class="button button--primary button--arrow button--block-mobile"
+               href="./contact.html"
+               data-i18n="common.startProject">
+              Start a Project
+            </a>
+            <a class="button button--outline button--block-mobile"
+               href="./services.html"
+               data-i18n="hero.exploreServices">
+              Explore Our Services
+            </a>
+          </div>
+
+          <ul class="hero__stats u-animate u-animate--fade-in u-animate--delay-4">
+            <li class="hero__stat">
+              <strong class="hero__stat-value">100+</strong>
+              <span class="hero__stat-label" data-i18n="hero.projects">Projects Delivered</span>
+            </li>
+            <li class="hero__stat">
+              <strong class="hero__stat-value">8+</strong>
+              <span class="hero__stat-label" data-i18n="hero.experience">Years of Experience</span>
+            </li>
+            <li class="hero__stat">
+              <strong class="hero__stat-value">50+</strong>
+              <span class="hero__stat-label" data-i18n="hero.clients">Happy Clients</span>
+            </li>
+          </ul>
         </div>
 
-        <ul class="hero__stats">
-          <li>
-            <strong>100+</strong>
-            <span data-i18n="hero.projects">Projects Delivered</span>
-          </li>
-          <li>
-            <strong>8+</strong>
-            <span data-i18n="hero.experience">Years of Experience</span>
-          </li>
-          <li>
-            <strong>50+</strong>
-            <span data-i18n="hero.clients">Happy Clients</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="hero__image">
-        <picture>
-          <source
-            type="image/webp"
-            srcset="./images/hero-360.webp 360w,
-                    ./images/hero-666.webp 666w"
-            sizes="(max-width: 767px) 100vw, 666px"
-          >
-          <img
-            src="./images/hero.png"
-            alt="Abstract blue intertwined 3D rings"
-            width="666"
-            height="444"
-            fetchpriority="high"
-          >
-        </picture>
+        <div class="hero__image">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="./images/hero-360.webp 360w,
+                      ./images/hero-666.webp 666w"
+              sizes="(min-width: 1280px) 560px, (min-width: 768px) 560px, calc(100vw - 40px)"
+            >
+            <img
+              class="hero__img"
+              src="./images/hero.png"
+              alt="Abstract blue intertwined 3D rings"
+              width="666"
+              height="444"
+              fetchpriority="high"
+            >
+          </picture>
+        </div>
       </div>
     </section>
 
     <!-- TECHNOLOGY BRANDS -->
     <section class="partners" aria-label="Technology brands">
-      <ul class="partners__list">
-        <li>Google</li>
-        <li>Microsoft</li>
-        <li>AWS</li>
-        <li>Slack</li>
-        <li>Spotify</li>
-        <li>Notion</li>
-        <li>Figma</li>
-      </ul>
+      <div class="container">
+        <ul class="partners__list">
+          <li class="partners__item">Google</li>
+          <li class="partners__item">Microsoft</li>
+          <li class="partners__item">AWS</li>
+          <li class="partners__item">Slack</li>
+          <li class="partners__item">Spotify</li>
+          <li class="partners__item">Notion</li>
+          <li class="partners__item">Figma</li>
+        </ul>
+      </div>
     </section>
 
     <!-- SERVICES -->
-    <section class="services" aria-labelledby="services-title">
-      <p data-i18n="services.label">Our Services</p>
-
-      <h2 id="services-title" data-i18n="services.title">
-        Comprehensive IT Solutions for Your Business
-      </h2>
-
-      <p data-i18n="services.description">
-        From strategy to implementation, we provide end-to-end
-        IT consulting and development services tailored to your goals.
-      </p>
-
-      <div class="services__list">
-        <article class="services__card">
-          <h3 data-i18n="services.software.title">
-            Software Development
-          </h3>
-          <p data-i18n="services.software.description">
-            Custom web and mobile applications that drive your business forward.
+    <section class="section services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading section-heading--split">
+          <div>
+            <p class="eyebrow" data-i18n="services.label">Our Services</p>
+            <h2 id="services-title" data-i18n="services.title">
+              Comprehensive IT Solutions for Your Business
+            </h2>
+          </div>
+          <p class="section-heading__lead" data-i18n="services.description">
+            From strategy to implementation, we provide end-to-end
+            IT consulting and development services tailored to your goals.
           </p>
-          <a href="./services.html">Explore service</a>
-        </article>
+        </div>
 
-        <article class="services__card">
-          <h3 data-i18n="services.cloud.title">Cloud Solutions</h3>
-          <p data-i18n="services.cloud.description">
-            Scalable and secure cloud infrastructure for any business size.
-          </p>
-          <a href="./services.html">Explore service</a>
-        </article>
+        <div class="row">
+          <article class="service-card col col--md-6 col--lg-3 u-reveal">
+            <svg class="icon service-card__icon" aria-hidden="true" focusable="false">
+              <use href="./icons.svg#code"></use>
+            </svg>
+            <h3 class="service-card__title" data-i18n="services.software.title">
+              Software Development
+            </h3>
+            <p class="service-card__text" data-i18n="services.software.description">
+              Custom web and mobile applications that drive your business forward.
+            </p>
+            <a class="link-arrow service-card__link" href="./services.html">
+              Explore service<span class="u-visually-hidden">: Software Development</span>
+            </a>
+          </article>
 
-        <article class="services__card">
-          <h3 data-i18n="services.ai.title">
-            AI &amp; Machine Learning
-          </h3>
-          <p data-i18n="services.ai.description">
-            Intelligent solutions to automate processes
-            and unlock new opportunities.
-          </p>
-          <a href="./services.html">Explore service</a>
-        </article>
+          <article class="service-card col col--md-6 col--lg-3 u-reveal">
+            <svg class="icon service-card__icon" aria-hidden="true" focusable="false">
+              <use href="./icons.svg#cloud"></use>
+            </svg>
+            <h3 class="service-card__title" data-i18n="services.cloud.title">Cloud Solutions</h3>
+            <p class="service-card__text" data-i18n="services.cloud.description">
+              Scalable and secure cloud infrastructure for any business size.
+            </p>
+            <a class="link-arrow service-card__link" href="./services.html">
+              Explore service<span class="u-visually-hidden">: Cloud Solutions</span>
+            </a>
+          </article>
 
-        <article class="services__card">
-          <h3 data-i18n="services.consulting.title">
-            IT Consulting
-          </h3>
-          <p data-i18n="services.consulting.description">
-            Strategic advice to help you make the right
-            technology decisions and grow.
-          </p>
-          <a href="./services.html">Explore service</a>
-        </article>
+          <article class="service-card col col--md-6 col--lg-3 u-reveal">
+            <svg class="icon service-card__icon" aria-hidden="true" focusable="false">
+              <use href="./icons.svg#sparkles"></use>
+            </svg>
+            <h3 class="service-card__title" data-i18n="services.ai.title">
+              AI &amp; Machine Learning
+            </h3>
+            <p class="service-card__text" data-i18n="services.ai.description">
+              Intelligent solutions to automate processes
+              and unlock new opportunities.
+            </p>
+            <a class="link-arrow service-card__link" href="./services.html">
+              Explore service<span class="u-visually-hidden">: AI &amp; Machine Learning</span>
+            </a>
+          </article>
+
+          <article class="service-card col col--md-6 col--lg-3 u-reveal">
+            <svg class="icon service-card__icon" aria-hidden="true" focusable="false">
+              <use href="./icons.svg#compass"></use>
+            </svg>
+            <h3 class="service-card__title" data-i18n="services.consulting.title">
+              IT Consulting
+            </h3>
+            <p class="service-card__text" data-i18n="services.consulting.description">
+              Strategic advice to help you make the right
+              technology decisions and grow.
+            </p>
+            <a class="link-arrow service-card__link" href="./services.html">
+              Explore service<span class="u-visually-hidden">: IT Consulting</span>
+            </a>
+          </article>
+        </div>
+
+        <div class="section-actions">
+          <a class="button button--outline" href="./services.html">View All Services</a>
+        </div>
       </div>
-
-      <a href="./services.html">View All Services</a>
     </section>
 
     <!-- ABOUT -->
-    <section class="about" id="about" aria-labelledby="about-title">
-      <p data-i18n="about.label">About Us</p>
+    <section class="section section--alt about" id="about" aria-labelledby="about-title">
+      <div class="container about__layout">
+        <div class="about__content">
+          <p class="eyebrow" data-i18n="about.label">About Us</p>
 
-      <h2 id="about-title" data-i18n="about.title">
-        Your Vision + Our Expertise = One Powerful Solution
-      </h2>
+          <h2 id="about-title" data-i18n="about.title">
+            Your Vision + Our Expertise = One Powerful Solution
+          </h2>
 
-      <p data-i18n="about.description">
-        We are an IT consulting company that helps businesses turn
-        ambitious ideas into real solutions. Our strength lies in a
-        dual partnership: combining your industry knowledge and
-        vision with our technology expertise.
-      </p>
+          <p class="about__text" data-i18n="about.description">
+            We are an IT consulting company that helps businesses turn
+            ambitious ideas into real solutions. Our strength lies in a
+            dual partnership: combining your industry knowledge and
+            vision with our technology expertise.
+          </p>
 
-<div class="about__formula" role="group" aria-label="Our partnership approach">        <p>
-          <strong>Your Vision</strong>
-          <span>Business goals, industry knowledge and direction</span>
-        </p>
-        <p>
-          <strong>Our Expertise</strong>
-          <span>Technology, architecture and business acumen</span>
-        </p>
-        <p><strong>One Powerful Solution</strong></p>
+          <a class="button button--outline about__link" href="./contact.html">
+            Learn More About Us
+          </a>
+        </div>
+
+        <div class="formula" role="group" aria-label="Our partnership approach">
+          <p class="formula__item formula__item--vision">
+            <strong class="formula__title">Your Vision</strong>
+            <span class="formula__text">Business goals, industry knowledge and direction</span>
+          </p>
+          <span class="formula__operator" aria-hidden="true">+</span>
+          <p class="formula__item">
+            <strong class="formula__title">Our Expertise</strong>
+            <span class="formula__text">Technology, architecture and business acumen</span>
+          </p>
+          <span class="formula__operator formula__operator--equals" aria-hidden="true">=</span>
+          <p class="formula__result">
+            <span class="formula__badge">
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use href="./icons.svg#diamond"></use>
+              </svg>
+            </span>
+            <strong class="formula__result-title">One Powerful Solution</strong>
+          </p>
+        </div>
       </div>
-
-      <a href="./contact.html">Learn More About Us</a>
     </section>
 
     <!-- BENEFITS -->
-    <section class="benefits" aria-labelledby="benefits-title">
-      <p data-i18n="benefits.label">Why Rule of Two</p>
+    <section class="section benefits" aria-labelledby="benefits-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="benefits.label">Why Rule of Two</p>
 
-      <h2 id="benefits-title" data-i18n="benefits.title">
-        Small team. Serious impact.
-      </h2>
+          <h2 id="benefits-title" data-i18n="benefits.title">
+            Small team. Serious impact.
+          </h2>
 
-      <p data-i18n="benefits.description">
-        We combine deep technical expertise with strategic
-        thinking to deliver solutions that truly matter.
-      </p>
-
-      <div class="benefits__list">
-        <article class="benefits__card">
-          <h3 data-i18n="benefits.collaboration.title">
-            Direct collaboration
-          </h3>
-          <p>
-            Work with the people building your product.
-            Clear communication, honest feedback and no handoffs.
+          <p class="section-heading__lead" data-i18n="benefits.description">
+            We combine deep technical expertise with strategic
+            thinking to deliver solutions that truly matter.
           </p>
-        </article>
+        </div>
 
-        <article class="benefits__card">
-          <h3 data-i18n="benefits.engineering.title">
-            Engineering with intent
-          </h3>
-          <p>
-            Clean architecture, thoughtful testing and security
-            by design. Quality that lasts beyond launch.
-          </p>
-        </article>
+        <div class="benefits__list">
+          <article class="feature u-reveal">
+            <svg class="icon feature__icon" aria-hidden="true" focusable="false">
+              <use href="./icons.svg#chat"></use>
+            </svg>
+            <h3 class="feature__title" data-i18n="benefits.collaboration.title">
+              Direct collaboration
+            </h3>
+            <p class="feature__text">
+              Work with the people building your product.
+              Clear communication, honest feedback and no handoffs.
+            </p>
+          </article>
 
-        <article class="benefits__card">
-          <h3 data-i18n="benefits.growth.title">
-            Built for the long run
-          </h3>
-          <p>
-            A partner from discovery to growth.
-            We build adaptable foundations, not short-term workarounds.
-          </p>
-        </article>
+          <article class="feature u-reveal">
+            <svg class="icon feature__icon" aria-hidden="true" focusable="false">
+              <use href="./icons.svg#shield"></use>
+            </svg>
+            <h3 class="feature__title" data-i18n="benefits.engineering.title">
+              Engineering with intent
+            </h3>
+            <p class="feature__text">
+              Clean architecture, thoughtful testing and security
+              by design. Quality that lasts beyond launch.
+            </p>
+          </article>
+
+          <article class="feature u-reveal">
+            <svg class="icon feature__icon" aria-hidden="true" focusable="false">
+              <use href="./icons.svg#trend"></use>
+            </svg>
+            <h3 class="feature__title" data-i18n="benefits.growth.title">
+              Built for the long run
+            </h3>
+            <p class="feature__text">
+              A partner from discovery to growth.
+              We build adaptable foundations, not short-term workarounds.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- FEATURED CASE STUDIES -->
-    <section class="case-studies" aria-labelledby="cases-title">
-      <p data-i18n="cases.label">Case Studies</p>
+    <section class="section section--flush-top case-studies" aria-labelledby="cases-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="cases.label">Case Studies</p>
 
-      <h2 id="cases-title" data-i18n="cases.title">
-        Ideas Turned Into Impact
-      </h2>
+          <h2 id="cases-title" data-i18n="cases.title">
+            Ideas Turned Into Impact
+          </h2>
 
-      <p data-i18n="cases.description">
-        Explore three sample concepts that demonstrate our approach.
-        These are illustrative projects, not verified client
-        engagements or results.
-      </p>
+          <p class="section-heading__lead" data-i18n="cases.description">
+            Explore three sample concepts that demonstrate our approach.
+            These are illustrative projects, not verified client
+            engagements or results.
+          </p>
+        </div>
 
-      <div class="case-studies__list">
-        <!-- NOVA -->
-        <article class="project-card">
-          <picture class="project-card__picture">
-            <source
-              type="image/webp"
-              srcset="./images/nova-420.webp 420w,
-                      ./images/nova-840.webp 840w"
-              sizes="(max-width: 767px) 100vw, 420px"
-            >
-            <img
-              class="project-card__image"
-              src="./images/nova.png"
-              alt="Nova Finance dashboard with financial charts"
-              width="411"
-              height="260"
-              loading="lazy"
-            >
-          </picture>
+        <div class="row">
+          <%- include('./src/partials/project-card.ejs', {
+            id: 'nova', link: './cases.html#nova', category: 'Software',
+            alt: 'Nova Finance dashboard with financial charts',
+            title: 'A clearer view of finance',
+            text: 'A unified workspace for cash flow, reporting and smarter financial decisions.',
+            tech: 'React · Node.js · PostgreSQL'
+          }) %>
 
-          <div class="project-card__content">
-            <p class="project-card__category">Software</p>
-            <p class="project-card__type">Sample Concept</p>
-            <h3 data-i18n="cases.nova.title">
-              A clearer view of finance
-            </h3>
-            <p data-i18n="cases.nova.description">
-              A unified workspace for cash flow, reporting
-              and smarter financial decisions.
-            </p>
-            <p class="project-card__technologies">
-              React · Node.js · PostgreSQL
-            </p>
-            <a href="./cases.html#nova">View case study</a>
-          </div>
-        </article>
+          <%- include('./src/partials/project-card.ejs', {
+            id: 'pulse', link: './cases.html#pulse', category: 'Mobile',
+            alt: 'Pulse Care appointment scheduling interface',
+            title: 'Care, without the friction',
+            text: 'An appointment and care companion that keeps patients connected to their providers.',
+            tech: 'Flutter · Firebase · FHIR'
+          }) %>
 
-        <!-- PULSE -->
-        <article class="project-card">
-          <picture class="project-card__picture">
-            <source
-              type="image/webp"
-              srcset="./images/pulse-420.webp 420w,
-                      ./images/pulse-840.webp 840w"
-              sizes="(max-width: 767px) 100vw, 420px"
-            >
-            <img
-              class="project-card__image"
-              src="./images/pulse.png"
-              alt="Pulse Care appointment scheduling interface"
-              width="411"
-              height="260"
-              loading="lazy"
-            >
-          </picture>
+          <%- include('./src/partials/project-card.ejs', {
+            id: 'atlas', link: './cases.html#atlas', category: 'AI',
+            alt: 'Atlas AI knowledge assistant interface',
+            title: 'Knowledge that works for you',
+            text: 'A secure AI knowledge assistant that turns scattered information into useful answers.',
+            tech: 'Python · LangChain · Azure'
+          }) %>
+        </div>
 
-          <div class="project-card__content">
-            <p class="project-card__category">Mobile</p>
-            <p class="project-card__type">Sample Concept</p>
-            <h3 data-i18n="cases.pulse.title">
-              Care, without the friction
-            </h3>
-            <p data-i18n="cases.pulse.description">
-              An appointment and care companion that
-              keeps patients connected to their providers.
-            </p>
-            <p class="project-card__technologies">
-              Flutter · Firebase · FHIR
-            </p>
-            <a href="./cases.html#pulse">View case study</a>
-          </div>
-        </article>
-
-        <!-- ATLAS -->
-        <article class="project-card">
-          <picture class="project-card__picture">
-            <source
-              type="image/webp"
-              srcset="./images/atlas-420.webp 420w,
-                      ./images/atlas-840.webp 840w"
-              sizes="(max-width: 767px) 100vw, 420px"
-            >
-            <img
-              class="project-card__image"
-              src="./images/atlas.png"
-              alt="Atlas AI knowledge assistant interface"
-              width="411"
-              height="260"
-              loading="lazy"
-            >
-          </picture>
-
-          <div class="project-card__content">
-            <p class="project-card__category">AI</p>
-            <p class="project-card__type">Sample Concept</p>
-            <h3 data-i18n="cases.atlas.title">
-              Knowledge that works for you
-            </h3>
-            <p data-i18n="cases.atlas.description">
-              A secure AI knowledge assistant that turns
-              scattered information into useful answers.
-            </p>
-            <p class="project-card__technologies">
-              Python · LangChain · Azure
-            </p>
-            <a href="./cases.html#atlas">View case study</a>
-          </div>
-        </article>
+        <div class="section-actions">
+          <a class="button button--outline" href="./cases.html">View All Case Studies</a>
+        </div>
       </div>
-
-      <a href="./cases.html">View All Case Studies</a>
     </section>
 
-    <!-- CALL TO ACTION -->
-    <section class="cta" aria-labelledby="cta-title">
-      <h2 id="cta-title" data-i18n="cta.title">
-        Great things start with two.
-      </h2>
-      <p data-i18n="cta.description">
-        Bring the vision. We'll bring the expertise.
-        Let's build what's next.
-      </p>
-      <a href="./contact.html" data-i18n="common.startProject">
-        Start a Project
-      </a>
-    </section>
+    <%- include('./src/partials/cta.ejs', { eyebrow: "Let's build together" }) %>
   </main>
 
   <%- include('./src/partials/footer.ejs') %>

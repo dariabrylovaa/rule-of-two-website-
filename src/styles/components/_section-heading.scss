@@ -1,0 +1,31 @@
+// =============================================================================
+// COMPONENTS / SECTION HEADING
+// Eyebrow + title + lead used at the top of most sections.
+// --split puts the lead on the right on desktop (Home → Services).
+// =============================================================================
+@use '../abstracts' as *;
+
+.section-heading {
+  max-width: rem(760px);
+  margin-bottom: fluid(32px, 48px);
+
+  &__lead {
+    max-width: rem(600px);
+    margin-top: space(4);
+  }
+
+  &--split {
+    max-width: none;
+
+    @include respond-to(lg) {
+      @include flex-between(flex-end, space(7));
+    }
+  }
+
+  &--split &__lead {
+    @include respond-to(lg) {
+      max-width: rem(400px);
+      margin-top: 0;
+    }
+  }
+}

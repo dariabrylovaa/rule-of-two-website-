@@ -1,0 +1,64 @@
+// =============================================================================
+// LAYOUT / GRID
+// Grid classes generated from the grid mixins (abstracts/_grid.scss).
+//
+//   <div class="container">
+//     <div class="row">
+//       <article class="col col--md-6 col--lg-4">…</article>
+//
+// .col is full width on mobile; --{n}, --md-{n}, --lg-{n} set the span
+// (out of 12) from that breakpoint up. Offsets: .col--offset-lg-{n}.
+// =============================================================================
+@use '../abstracts' as *;
+
+.container {
+  @include make-container;
+}
+
+.row {
+  @include make-row;
+
+  &--gutter-none {
+    --grid-gutter: 0px;
+  }
+
+  &--gutter-lg {
+    @include respond-to(lg) {
+      --grid-gutter: #{rem(48px)};
+    }
+  }
+
+  &--align-center {
+    align-items: center;
+  }
+}
+
+.col {
+  @include make-col($grid-columns);
+
+  &--auto {
+    @include make-col-auto;
+  }
+
+  @for $i from 1 through $grid-columns {
+    &--#{$i} {
+      width: col-width($i);
+    }
+  }
+
+  @each $bp in (md, lg) {
+    @include respond-to($bp) {
+      @for $i from 1 through $grid-columns {
+        &--#{$bp}-#{$i} {
+          width: col-width($i);
+        }
+      }
+
+      @for $i from 1 through 3 {
+        &--offset-#{$bp}-#{$i} {
+          @include make-col-offset($i);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+// =============================================================================
+// COMPONENTS / PAGE HERO
+// Intro block of the inner pages (Services, Case Studies, Contact).
+// =============================================================================
+@use '../abstracts' as *;
+
+.page-hero {
+  padding-block: fluid(56px, 112px) fluid(40px, 72px);
+
+  &__title {
+    max-width: rem(760px);
+  }
+
+  &__lead {
+    @extend %type-lead;
+
+    max-width: rem(640px);
+    margin-top: space(5);
+  }
+}

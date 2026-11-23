@@ -1,55 +1,80 @@
-<header class="site-header">
-  <a class="site-header__logo"
-     href="./index.html"
-     aria-label="Rule of Two home">
-    RULE OF TWO
-  </a>
+<a class="skip-link" href="#main">Skip to main content</a>
 
-  <nav class="site-nav" aria-label="Main navigation">
-    <ul class="site-nav__list">
-      <li>
-        <a href="./index.html"
-           data-i18n="nav.home"
-           <%- activePage === 'home' ? 'aria-current="page"' : '' %>>
-          Home
-        </a>
-      </li>
+<header class="site-header" data-header>
+  <div class="container site-header__inner">
+    <a class="logo site-header__logo"
+       href="./index.html"
+       aria-label="Rule of Two home">
+      <%- include('./logo-mark.ejs') %>
+      <span class="logo__text" aria-hidden="true">
+        <span class="logo__name">Rule of Two</span>
+        <span class="logo__tagline">IT Consulting</span>
+      </span>
+    </a>
 
-      <li>
-        <a href="./services.html"
-           data-i18n="nav.services"
-           <%- activePage === 'services' ? 'aria-current="page"' : '' %>>
-          Services
-        </a>
-      </li>
+    <nav class="site-nav site-header__nav"
+         id="site-nav"
+         aria-label="Main navigation">
+      <ul class="site-nav__list">
+        <li class="site-nav__item">
+          <a class="site-nav__link"
+             href="./index.html"
+             data-i18n="nav.home"
+             <%- activePage === 'home' ? 'aria-current="page"' : '' %>>
+            Home
+          </a>
+        </li>
 
-      <li>
-        <a href="./cases.html"
-           data-i18n="nav.cases"
-           <%- activePage === 'cases' ? 'aria-current="page"' : '' %>>
-          Case Studies
-        </a>
-      </li>
+        <li class="site-nav__item">
+          <a class="site-nav__link"
+             href="./services.html"
+             data-i18n="nav.services"
+             <%- activePage === 'services' ? 'aria-current="page"' : '' %>>
+            Services
+          </a>
+        </li>
 
-      <li>
-        <a href="./index.html#about" data-i18n="nav.about">
-          About
-        </a>
-      </li>
+        <li class="site-nav__item">
+          <a class="site-nav__link"
+             href="./cases.html"
+             data-i18n="nav.cases"
+             <%- activePage === 'cases' ? 'aria-current="page"' : '' %>>
+            Case Studies
+          </a>
+        </li>
 
-      <li>
-        <a href="./contact.html"
-           data-i18n="nav.contact"
-           <%- activePage === 'contact' ? 'aria-current="page"' : '' %>>
-          Contact
-        </a>
-      </li>
-    </ul>
-  </nav>
+        <li class="site-nav__item">
+          <a class="site-nav__link"
+             href="./index.html#about"
+             data-i18n="nav.about">
+            About
+          </a>
+        </li>
 
-  <a class="site-header__cta"
-     href="./contact.html"
-     data-i18n="common.startProject">
-    Start a Project
-  </a>
+        <li class="site-nav__item">
+          <a class="site-nav__link"
+             href="./contact.html"
+             data-i18n="nav.contact"
+             <%- activePage === 'contact' ? 'aria-current="page"' : '' %>>
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="button button--outline button--sm site-header__cta"
+       href="./contact.html"
+       data-i18n="common.startProject">
+      Start a Project
+    </a>
+
+    <button class="site-header__toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            data-nav-toggle>
+      Menu
+      <span class="site-header__toggle-icon" aria-hidden="true"></span>
+    </button>
+  </div>
 </header>

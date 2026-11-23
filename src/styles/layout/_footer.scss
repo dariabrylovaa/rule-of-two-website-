@@ -1,0 +1,83 @@
+// =============================================================================
+// LAYOUT / FOOTER
+// Column layout is built with the custom grid mixins (make-row / make-col).
+// =============================================================================
+@use '../abstracts' as *;
+
+.site-footer {
+  padding-block: fluid(48px, 64px) space(6);
+  border-top: $border-width solid token(border-subtle);
+  background-color: token(bg);
+
+  @extend %type-small;
+
+  &__top {
+    @include make-row($row-gap: 32px);
+  }
+
+  &__brand {
+    @include make-col-responsive((base: 12, md: 12, lg: 7));
+  }
+
+  &__nav {
+    @include make-col-responsive((base: 12, md: 6, lg: 2));
+  }
+
+  &__contact {
+    @include flex-column(space(2));
+    @include make-col-responsive((base: 12, md: 6, lg: 3));
+  }
+
+  &__text {
+    max-width: rem(280px);
+    margin-top: space(4);
+  }
+
+  &__list,
+  &__social,
+  &__legal {
+    @extend %reset-list;
+  }
+
+  &__list {
+    @include flex-column(space(3));
+  }
+
+  &__social {
+    @include flex($gap: space(5));
+  }
+
+  &__legal {
+    @include flex($gap: space(5));
+  }
+
+  &__link {
+    color: token(text);
+
+    @include transition(color);
+
+    @include hover {
+      color: token(accent);
+    }
+  }
+
+  &__status {
+    color: token(accent);
+  }
+
+  &__bottom {
+    @include flex($direction: column, $gap: space(3));
+
+    margin-top: fluid(40px, 56px);
+    padding-top: space(5);
+    border-top: $border-width solid token(border-subtle);
+
+    @extend %type-caption;
+
+    @include respond-to(md) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

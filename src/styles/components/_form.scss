@@ -1,0 +1,63 @@
+// =============================================================================
+// COMPONENTS / FORM FIELD
+// Label + control (input, select, textarea).
+// =============================================================================
+@use '../abstracts' as *;
+
+.form-field {
+  @include flex-column(space(2));
+
+  &__label {
+    @extend %type-small;
+
+    color: token(text);
+    font-weight: weight(medium);
+  }
+
+  &__control {
+    @extend %type-small;
+
+    width: 100%;
+    min-height: rem(48px);
+    padding: space(3) space(4);
+    border: $border-width solid token(border);
+    border-radius: radius(sm);
+    color: token(text);
+    background-color: token(surface);
+
+    @include transition(border-color, box-shadow);
+
+    &::placeholder {
+      color: token(muted);
+      opacity: 0.85;
+    }
+
+    @include hover {
+      border-color: token(border-strong);
+    }
+
+    &:focus,
+    &:focus-visible {
+      border-color: token(accent);
+      outline: none;
+      box-shadow: 0 0 0 3px token(accent-soft);
+    }
+
+    &:user-invalid {
+      border-color: token(danger);
+    }
+
+    &--select {
+      padding-right: space(7);
+      background-image: chevron-icon($color-muted);
+      background-repeat: no-repeat;
+      background-position: right space(4) center;
+      cursor: pointer;
+      appearance: none;
+    }
+
+    &--textarea {
+      min-height: rem(140px);
+    }
+  }
+}

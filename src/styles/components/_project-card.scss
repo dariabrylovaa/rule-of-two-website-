@@ -1,0 +1,85 @@
+// =============================================================================
+// COMPONENTS / PROJECT CARD
+// Case study preview: UI screenshot on top, meta + text below.
+// =============================================================================
+@use '../abstracts' as *;
+
+.project-card {
+  @extend %surface-card;
+  @include flex-column;
+
+  overflow: hidden;
+
+  @include transition(border-color, transform);
+
+  @include hover {
+    border-color: token(accent);
+    transform: translateY(-4px);
+
+    .project-card__image {
+      transform: scale(1.03);
+    }
+  }
+
+  &:focus-within {
+    border-color: token(accent);
+  }
+
+  &__picture {
+    aspect-ratio: 411 / 260;
+    overflow: hidden;
+    border-bottom: $border-width solid token(border-subtle);
+    background-color: token(surface);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include transition(transform);
+
+    transition-duration: duration(slow);
+  }
+
+  &__content {
+    @include flex-column(space(2));
+
+    flex-grow: 1;
+    padding: fluid(20px, 24px);
+    background-color: token(bg);
+  }
+
+  &__meta {
+    @include flex-between(center, space(3));
+  }
+
+  &__category,
+  &__type {
+    @extend %type-eyebrow;
+
+    letter-spacing: 0.12em;
+  }
+
+  &__category {
+    color: token(accent);
+  }
+
+  &__title {
+    margin-top: space(2);
+    font-weight: weight(regular);
+  }
+
+  &__text {
+    @extend %type-small;
+  }
+
+  &__technologies {
+    @extend %type-caption;
+  }
+
+  &__link {
+    margin-top: auto;
+    padding-top: space(2);
+  }
+}

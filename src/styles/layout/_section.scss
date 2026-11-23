@@ -1,0 +1,18 @@
+// =============================================================================
+// LAYOUT / SECTION
+// Vertical rhythm and background variants for page sections.
+// =============================================================================
+@use 'sass:list';
+@use '../abstracts' as *;
+
+.section {
+  padding-block: fluid(list.nth($section-spacing, 1), list.nth($section-spacing, 2));
+
+  &--alt {
+    background-color: token(surface);
+  }
+
+  &--flush-top {
+    padding-top: 0;
+  }
+}

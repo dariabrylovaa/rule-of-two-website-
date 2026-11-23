@@ -1,0 +1,224 @@
+// =============================================================================
+// PAGES / HOME
+// Hero, technology brands, about formula, benefits.
+// =============================================================================
+@use '../abstracts' as *;
+
+// --- Hero --------------------------------------------------------------------
+.hero {
+  padding-block: fluid(40px, 88px) fluid(48px, 80px);
+  overflow: hidden;
+
+  &__inner {
+    @include grid(1, fluid(32px, 48px));
+
+    align-items: center;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+  }
+
+  &__title {
+    @extend %type-display;
+  }
+
+  &__title-line {
+    display: block;
+  }
+
+  &__title-accent {
+    color: token(accent);
+  }
+
+  &__description {
+    @extend %type-lead;
+
+    max-width: rem(460px);
+    margin-top: space(5);
+  }
+
+  &__actions {
+    @include flex($wrap: wrap, $gap: space(3));
+
+    margin-top: space(6);
+  }
+
+  &__stats {
+    @extend %reset-list;
+    @include flex($gap: fluid(24px, 48px));
+
+    margin-top: fluid(32px, 48px);
+  }
+
+  &__stat {
+    @include flex-column(space(1));
+  }
+
+  &__stat-value {
+    color: token(text);
+    font-size: fluid(22px, 28px);
+    font-weight: weight(semibold);
+    line-height: 1.1;
+  }
+
+  &__stat-label {
+    @extend %type-caption;
+  }
+
+  &__image {
+    justify-self: center;
+    max-width: rem(560px);
+
+    @include animate(appear, slow, 200ms);
+
+    @include respond-to(lg) {
+      justify-self: end;
+    }
+  }
+
+  &__img {
+    animation: float 8s $ease-in-out 1s infinite;
+  }
+}
+
+// --- Technology brands strip ---------------------------------------------------
+.partners {
+  padding-block: space(5);
+  border-block: $border-width solid token(border-subtle);
+
+  &__list {
+    @extend %reset-list;
+    @include flex($justify: center, $align: center, $wrap: wrap, $gap: 12px 32px);
+
+    @include respond-to(lg) {
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    color: token(muted);
+    font-size: rem(15px);
+    font-weight: weight(semibold);
+    letter-spacing: 0.02em;
+
+    @include transition(color);
+
+    @include hover {
+      color: token(text);
+    }
+  }
+}
+
+// --- Section footer button (View all …) ---------------------------------------
+.section-actions {
+  margin-top: fluid(32px, 48px);
+}
+
+// --- About: "Your vision + Our expertise = One powerful solution" -------------
+.about {
+  &__layout {
+    @include grid(1, fluid(40px, 64px));
+
+    align-items: center;
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  &__text {
+    max-width: rem(560px);
+    margin-top: space(5);
+  }
+
+  &__link {
+    margin-top: space(6);
+  }
+}
+
+.formula {
+  @include flex-center(space(3));
+
+  flex-wrap: wrap;
+
+  &__item {
+    @include flex-column(space(2), center);
+    @include size(124px);
+
+    justify-content: center;
+    padding: space(3);
+    border: $border-width solid token(border-strong);
+    border-radius: 50%;
+    text-align: center;
+
+    @include respond-to(md) {
+      @include size(148px);
+    }
+
+    &--vision {
+      border-color: token(accent);
+      box-shadow: 0 0 40px token(accent-soft);
+    }
+  }
+
+  &__title {
+    @extend %type-eyebrow;
+
+    color: token(text);
+    font-size: rem(9px);
+  }
+
+  &__text {
+    font-size: rem(10px);
+    line-height: 1.4;
+  }
+
+  &__operator {
+    color: token(muted);
+    font-size: rem(20px);
+
+    &--equals {
+      @include respond-below(md) {
+        flex-basis: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  &__result {
+    @include flex-column(space(3), center);
+
+    text-align: center;
+
+    @include respond-below(md) {
+      flex-basis: 100%;
+    }
+  }
+
+  &__badge {
+    @include flex-center;
+    @include size(56px);
+
+    border-radius: radius(md);
+    color: token(text);
+    background-color: token(accent);
+    box-shadow: 0 0 48px with-alpha($color-accent, 0.45);
+  }
+
+  &__result-title {
+    @extend %type-eyebrow;
+
+    max-width: 12ch;
+    color: token(text);
+    font-size: rem(10px);
+  }
+}
+
+// --- Benefits ------------------------------------------------------------------
+.benefits {
+  &__list {
+    @include grid(1, fluid(32px, 40px));
+    @include grid-columns((md: 3));
+  }
+}

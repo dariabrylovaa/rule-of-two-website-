@@ -1,0 +1,83 @@
+// =============================================================================
+// PAGES / CONTACT
+// Form + contact information, FAQ layout.
+// =============================================================================
+@use '../abstracts' as *;
+
+.contact {
+  &__form-title {
+    font-size: fluid(24px, 30px);
+    font-weight: weight(regular);
+  }
+
+  &__required-note {
+    @extend %type-caption;
+
+    margin-block: space(3) space(6);
+  }
+}
+
+.contact-form {
+  &__notice {
+    @extend %type-caption;
+
+    margin-top: space(5);
+  }
+
+  &__submit {
+    margin-top: space(5);
+  }
+}
+
+.contact-info {
+  @include flex-column;
+
+  &__title {
+    @extend %type-h4;
+
+    font-size: fluid(18px, 20px);
+  }
+
+  &__text {
+    @extend %type-small;
+
+    margin-block: space(4) space(5);
+  }
+
+  &__item {
+    @include flex-column(space(2));
+
+    padding-block: space(5);
+    border-top: $border-width solid token(border-subtle);
+  }
+
+  &__icon {
+    margin-bottom: space(2);
+    color: token(accent);
+  }
+
+  &__label {
+    margin: 0;
+  }
+
+  &__value {
+    color: token(text);
+  }
+
+  &__social {
+    @extend %reset-list;
+    @include flex($gap: space(5));
+
+    padding-top: space(3);
+  }
+}
+
+.faq-section {
+  &__intro {
+    margin-bottom: space(6);
+
+    @include respond-to(lg) {
+      margin-bottom: 0;
+    }
+  }
+}

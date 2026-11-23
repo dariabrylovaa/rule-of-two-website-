@@ -1,0 +1,26 @@
+// =============================================================================
+// COMPONENTS / ICON
+// Line icons from the SVG sprite (public/icons.svg):
+//   <svg class="icon" aria-hidden="true"><use href="./icons.svg#code"></use></svg>
+// Stroke settings are inherited into the <use> shadow tree.
+// =============================================================================
+@use '../abstracts' as *;
+
+.icon {
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  @include size(22px);
+
+  &--accent {
+    color: token(accent);
+  }
+
+  &--sm {
+    @include size(18px);
+  }
+}

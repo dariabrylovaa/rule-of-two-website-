@@ -1,0 +1,19 @@
+// =============================================================================
+// PAGES / CASE STUDIES
+// Filters, disclaimer and testimonials list.
+// =============================================================================
+@use '../abstracts' as *;
+
+.projects {
+  &__filters {
+    @include flex($wrap: wrap, $gap: space(2));
+
+    margin-bottom: space(6);
+  }
+
+  &__disclaimer {
+    @extend %type-caption;
+
+    margin-bottom: space(6);
+  }
+}

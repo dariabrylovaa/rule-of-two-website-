@@ -1,0 +1,50 @@
+// =============================================================================
+// COMPONENTS / FAQ
+// Native <details>/<summary> accordion with a "+" / "−" marker.
+// =============================================================================
+@use '../abstracts' as *;
+
+.faq {
+  &__item {
+    border-bottom: $border-width solid token(border-strong);
+  }
+
+  &__question {
+    @include flex-between(flex-start, space(4));
+
+    padding-block: space(5);
+    color: token(text);
+    list-style: none;
+    cursor: pointer;
+
+    @include transition(color);
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: '+' / '';
+      color: token(accent);
+      font-size: rem(20px);
+      line-height: 1;
+    }
+
+    @include hover {
+      color: token(accent);
+    }
+  }
+
+  &__item[open] &__question::after {
+    content: '\2212' / '';
+  }
+
+  &__answer {
+    @extend %type-small;
+
+    max-width: rem(640px);
+    padding-bottom: space(5);
+
+    @include animate(fade-in, base);
+  }
+}

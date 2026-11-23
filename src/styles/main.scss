@@ -1,0 +1,59 @@
+// =============================================================================
+// MAIN — entry point (architecture 7-1)
+//
+//   abstracts/   variables, functions, mixins, grid mixins, placeholders (no CSS)
+//   vendors/     third-party / reset styles
+//   themes/      theme tokens → CSS custom properties
+//   base/        element defaults, typography, animations, utilities, print
+//   layout/      grid classes, header, footer, sections
+//   components/  reusable BEM blocks
+//   pages/       page-specific styles
+//
+// Compiled by Vite (imported in src/main.js) or standalone:
+//   npm run build:css → dist-css/main.css
+// =============================================================================
+
+// 1. Abstracts (placeholders are emitted first so @extend groups land here)
+@use 'abstracts';
+
+// 2. Vendors
+@use 'vendors/normalize';
+
+// 3. Themes
+@use 'themes/dark';
+
+// 4. Base
+@use 'base/base';
+@use 'base/typography';
+@use 'base/animations';
+
+// 5. Layout
+@use 'layout/grid';
+@use 'layout/section';
+@use 'layout/header';
+@use 'layout/footer';
+
+// 6. Components
+@use 'components/button';
+@use 'components/icon';
+@use 'components/logo';
+@use 'components/section-heading';
+@use 'components/page-hero';
+@use 'components/service-card';
+@use 'components/feature';
+@use 'components/project-card';
+@use 'components/chip';
+@use 'components/form';
+@use 'components/faq';
+@use 'components/testimonial';
+@use 'components/cta';
+
+// 7. Pages
+@use 'pages/home';
+@use 'pages/services';
+@use 'pages/cases';
+@use 'pages/contact';
+
+// Utilities and print go last so they can override component styles
+@use 'base/utilities';
+@use 'base/print';

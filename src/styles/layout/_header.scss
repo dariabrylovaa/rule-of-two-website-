@@ -1,0 +1,166 @@
+// =============================================================================
+// LAYOUT / HEADER
+// Sticky site header. Below 1280px the navigation collapses into a dropdown
+// opened by the "Menu" button (see src/js/navigation.js).
+// =============================================================================
+@use '../abstracts' as *;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: z(header);
+  border-bottom: $border-width solid token(border-subtle);
+  background-color: token(header-bg);
+  backdrop-filter: blur(12px);
+
+  &__inner {
+    @include flex($align: center, $gap: 16px);
+
+    min-height: rem($header-height);
+  }
+
+  &__logo {
+    margin-inline-end: auto;
+
+    @include respond-to(lg) {
+      margin-inline-end: 0;
+    }
+  }
+
+  // --- Navigation: dropdown on mobile/tablet, inline on desktop -------------
+  &__nav {
+    position: absolute;
+    inset: 100% 0 auto;
+    display: none;
+    padding: space(2) rem(20px) space(6);
+    border-bottom: $border-width solid token(border-subtle);
+    background-color: token(bg);
+
+    @include respond-to(md) {
+      padding-inline: rem(40px);
+    }
+
+    @include respond-to(lg) {
+      position: static;
+      display: block;
+      margin-inline: auto;
+      padding: 0;
+      border: 0;
+      background: none;
+    }
+  }
+
+  &--open &__nav {
+    display: block;
+
+    @include animate(slide-down, base);
+  }
+
+  &__cta {
+    display: none;
+
+    @include respond-to(md) {
+      display: inline-flex;
+    }
+  }
+
+  // --- Menu toggle -----------------------------------------------------------
+  &__toggle {
+    @include reset-button;
+    @include flex($align: center, $gap: 10px);
+
+    min-height: rem(44px);
+    padding-inline: space(2);
+    border-radius: radius(sm);
+    color: token(text);
+
+    @extend %type-small;
+
+    @include respond-to(lg) {
+      display: none;
+    }
+  }
+
+  // "+" that turns into "×" when the menu is open
+  &__toggle-icon {
+    position: relative;
+
+    @include size(14px);
+
+    &::before,
+    &::after {
+      @include pseudo;
+
+      inset: 50% 0 auto;
+      height: 1.5px;
+      background-color: currentcolor;
+      transform: translateY(-50%);
+
+      @include transition(transform);
+    }
+
+    &::after {
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+
+  &--open &__toggle-icon {
+    &::before {
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translateY(-50%) rotate(135deg);
+    }
+  }
+}
+
+// Navigation list (BEM block nested inside the header)
+.site-nav {
+  &__list {
+    @extend %reset-list;
+    @include flex-column;
+
+    @include respond-to(lg) {
+      flex-direction: row;
+      gap: space(6);
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    padding-block: space(4);
+    border-bottom: $border-width solid token(border-subtle);
+    color: token(muted);
+
+    @extend %type-small;
+    @include transition(color);
+
+    @include hover {
+      color: token(text);
+    }
+
+    &[aria-current='page'] {
+      color: token(text);
+    }
+
+    @include respond-to(lg) {
+      padding-block: space(2);
+      border-bottom: 0;
+
+      // Active indicator: short accent bar under the link
+      &[aria-current='page']::after {
+        @include pseudo;
+
+        bottom: rem(-6px);
+        left: 50%;
+        width: rem(18px);
+        height: 2px;
+        border-radius: radius(pill);
+        background-color: token(accent);
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

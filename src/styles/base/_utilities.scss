@@ -1,0 +1,72 @@
+// =============================================================================
+// BASE / UTILITIES
+// Single-purpose helper classes, prefixed with `u-`.
+// Spacing classes are generated from the $spacers map:
+//   .u-mt-5 → margin-top: 1.5rem    .u-py-8 → padding-block: 4rem
+// =============================================================================
+@use '../abstracts' as *;
+
+// --- Spacing -----------------------------------------------------------------
+$spacing-properties: (
+  m: margin,
+  mt: margin-top,
+  mb: margin-bottom,
+  my: margin-block,
+  p: padding,
+  pt: padding-top,
+  pb: padding-bottom,
+  py: padding-block,
+);
+
+@each $abbr, $property in $spacing-properties {
+  @each $key, $value in $spacers {
+    .u-#{$abbr}-#{$key} {
+      #{$property}: space($key) !important;
+    }
+  }
+}
+
+.u-mx-auto {
+  margin-inline: auto !important;
+}
+
+// --- Visibility --------------------------------------------------------------
+.u-visually-hidden {
+  @include visually-hidden;
+}
+
+.u-hidden {
+  display: none !important;
+}
+
+// Hide only on a given device range
+.u-hide-mobile {
+  @include respond-below(md) {
+    display: none !important;
+  }
+}
+
+.u-hide-tablet {
+  @include respond-between(md, lg) {
+    display: none !important;
+  }
+}
+
+.u-hide-desktop {
+  @include respond-to(lg) {
+    display: none !important;
+  }
+}
+
+.u-print-only {
+  display: none !important;
+}
+
+// --- Text --------------------------------------------------------------------
+.u-text-accent {
+  color: token(accent) !important;
+}
+
+.u-text-center {
+  text-align: center !important;
+}

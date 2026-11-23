@@ -1,0 +1,94 @@
+// =============================================================================
+// BASE / PRINT
+// Light, ink-friendly output: no navigation, no decorative backgrounds,
+// link URLs printed after the text, cards kept on one page.
+// =============================================================================
+@use '../abstracts' as *;
+
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+
+  :root {
+    --color-bg: #fff;
+    --color-surface: #fff;
+    --color-surface-raised: #fff;
+    --color-text: #000;
+    --color-muted: #333;
+    --color-accent: #000;
+    --color-border: #999;
+    --color-border-subtle: #ccc;
+  }
+
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
+  }
+
+  body {
+    font-size: 11pt;
+    color: #000;
+  }
+
+  // Interactive or decorative parts are useless on paper
+  .site-header__nav,
+  .site-header__toggle,
+  .site-header__cta,
+  .site-footer__nav,
+  .skip-link,
+  .button,
+  .projects__filters,
+  .hero__image,
+  .cta,
+  .contact-form {
+    display: none !important;
+  }
+
+  .site-header {
+    position: static;
+    border-bottom: 1px solid #000;
+  }
+
+  .u-print-only {
+    display: block !important;
+  }
+
+  // Show where links lead
+  main a[href^='http']::after,
+  main a[href^='mailto:']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.85em;
+  }
+
+  .section {
+    padding-block: 1cm;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  .service-card,
+  .project-card,
+  .testimonial,
+  .process__step,
+  .faq__item {
+    break-inside: avoid;
+  }
+
+  // Print every FAQ answer, not only the open one
+  .faq__item > :not(summary) {
+    display: block !important;
+  }
+
+  img {
+    max-width: 60% !important;
+  }
+}

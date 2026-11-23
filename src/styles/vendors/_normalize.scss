@@ -1,0 +1,74 @@
+// =============================================================================
+// VENDORS / NORMALIZE
+// Minimal modern reset, based on the ideas of modern-normalize (MIT) and
+// Andy Bell's "A (more) modern CSS reset". Kept local to avoid a dependency.
+// =============================================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+address {
+  font-style: normal;
+}
+
+summary {
+  display: list-item;
+}
+
+[hidden] {
+  display: none !important;
+}

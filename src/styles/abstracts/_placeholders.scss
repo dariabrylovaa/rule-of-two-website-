@@ -1,0 +1,56 @@
+// =============================================================================
+// ABSTRACTS / PLACEHOLDERS
+// Shared declaration blocks used through @extend. Selectors that extend the
+// same placeholder are grouped in the compiled CSS, so the declarations are
+// written once instead of being duplicated in every component.
+// =============================================================================
+@use 'sass:map';
+@use 'variables' as *;
+@use 'functions' as *;
+@use 'mixins' as *;
+
+// One placeholder per type style: %type-h2, %type-lead, %type-eyebrow, …
+@each $style, $settings in $type-scale {
+  %type-#{$style} {
+    @include typography($style);
+  }
+}
+
+// Bordered card on the secondary surface
+%surface-card {
+  border: $border-width solid token(border);
+  border-radius: radius(md);
+  background-color: token(surface);
+}
+
+// Same card, but darker (used on top of alternate sections)
+%surface-card-sunken {
+  border: $border-width solid token(border-subtle);
+  border-radius: radius(md);
+  background-color: token(bg);
+}
+
+// Pill shape shared by buttons and chips
+%pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: space(2);
+  border: $border-width solid transparent;
+  border-radius: radius(pill);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+%reset-list {
+  @include reset-list;
+}
+
+%muted-text {
+  color: token(muted);
+}
+
+%heading-text {
+  margin: 0;
+  color: token(text);
+}

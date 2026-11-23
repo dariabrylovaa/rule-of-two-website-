@@ -1,0 +1,137 @@
+// =============================================================================
+// ABSTRACTS / FUNCTIONS
+// Pure helpers: unit conversion, fluid sizing, color math, token lookups.
+// =============================================================================
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+@use 'sass:string';
+@use 'variables' as *;
+
+// Round a number to N decimal places (keeps compiled CSS readable).
+@function round-to($number, $digits: 4) {
+  $factor: math.pow(10, $digits);
+
+  @return math.div(math.round($number * $factor), $factor);
+}
+
+// Remove the unit from a number: 24px → 24
+@function strip-unit($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+
+// px → rem converter. Accepts a single value or a list: rem(16px 24px)
+@function rem($value, $base: $font-size-root) {
+  @if meta.type-of($value) == 'list' {
+    $result: ();
+
+    @each $item in $value {
+      $result: list.append($result, rem($item, $base));
+    }
+
+    @return $result;
+  }
+
+  @if meta.type-of($value) != 'number' or $value == 0 or math.unit($value) != 'px' {
+    @return $value;
+  }
+
+  @return round-to(math.div($value, $base)) * 1rem;
+}
+
+// Fluid value that scales linearly between two viewport widths:
+// fluid(16px, 24px) → clamp(1rem, …vw + …rem, 1.5rem)
+@function fluid($min, $max, $min-vw: $fluid-min-vw, $max-vw: $fluid-max-vw) {
+  @if $min == $max {
+    @return rem($min);
+  }
+
+  $slope: math.div($max - $min, $max-vw - $min-vw);
+  $intercept: $min - $slope * $min-vw;
+  $preferred: string.unquote('#{rem($intercept)} + #{round-to($slope * 100, 3)}vw');
+
+  @return clamp(#{rem($min)}, #{$preferred}, #{rem($max)});
+}
+
+// -----------------------------------------------------------------------------
+// Color functions
+// -----------------------------------------------------------------------------
+
+// Compile-time color mix (Sass): mix-colors($color-accent, #fff, 85%)
+@function mix-colors($color-a, $color-b, $weight: 50%) {
+  @return color.mix($color-a, $color-b, $weight);
+}
+
+// Runtime CSS color-mix() — works with custom properties (theme tokens):
+// color-mix-css(token(accent), #fff, 85%)
+@function color-mix-css($color-a, $color-b, $weight: 50%, $space: srgb) {
+  @return string.unquote('color-mix(in #{$space}, #{$color-a} #{$weight}, #{$color-b})');
+}
+
+@function with-alpha($color, $opacity) {
+  @return color.change($color, $alpha: $opacity);
+}
+
+@function tint($color, $percentage) {
+  @return mix-colors($color-white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix-colors($color-black, $color, $percentage);
+}
+
+// Encode a color for use inside an SVG data URI: #92a5be → %2392a5be
+@function url-encode-color($color) {
+  $hex: string.slice(meta.inspect($color), 2);
+
+  @return '%23#{$hex}';
+}
+
+// Inline chevron icon for native <select> elements
+@function chevron-icon($color: $color-muted) {
+  $stroke: url-encode-color($color);
+
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='#{$stroke}' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4.5l3 3 3-3'/%3E%3C/svg%3E");
+}
+
+// -----------------------------------------------------------------------------
+// Token lookups (fail loudly on typos)
+// -----------------------------------------------------------------------------
+@function map-get-strict($map, $key, $name) {
+  @if not map.has-key($map, $key) {
+    @error 'Unknown #{$name} `#{$key}`. Available: #{map.keys($map)}';
+  }
+
+  @return map.get($map, $key);
+}
+
+@function bp($name) {
+  @return map-get-strict($breakpoints, $name, 'breakpoint');
+}
+
+@function space($key) {
+  @return rem(map-get-strict($spacers, $key, 'spacer'));
+}
+
+@function radius($key) {
+  @return rem(map-get-strict($radii, $key, 'radius'));
+}
+
+@function duration($key) {
+  @return map-get-strict($durations, $key, 'duration');
+}
+
+@function z($layer) {
+  @return map-get-strict($z-layers, $layer, 'z-layer');
+}
+
+@function weight($key) {
+  @return map-get-strict($font-weights, $key, 'font weight');
+}
+
+// Theme token → CSS custom property: token(accent) → var(--color-accent)
+@function token($name) {
+  @return var(--color-#{$name});
+}

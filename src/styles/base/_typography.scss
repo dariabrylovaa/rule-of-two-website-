@@ -1,0 +1,65 @@
+// =============================================================================
+// BASE / TYPOGRAPHY
+// Default heading styles + reusable text blocks (BEM): .eyebrow, .link-arrow
+// =============================================================================
+@use '../abstracts' as *;
+
+h1,
+h2,
+h3,
+h4 {
+  @extend %heading-text;
+}
+
+h1 {
+  @extend %type-page-title;
+}
+
+h2 {
+  @extend %type-h2;
+}
+
+h3 {
+  @extend %type-h3;
+}
+
+h4 {
+  @extend %type-h4;
+}
+
+strong {
+  font-weight: weight(semibold);
+}
+
+// Small uppercase label above titles: "OUR SERVICES"
+.eyebrow {
+  @extend %type-eyebrow;
+
+  margin: 0 0 space(4);
+  color: token(accent);
+
+  &--muted {
+    color: token(muted);
+  }
+}
+
+// Text link with an arrow: "Explore service ↗"
+.link-arrow {
+  @extend %type-small;
+
+  display: inline-flex;
+  align-items: center;
+  gap: space(1);
+  color: token(accent);
+
+  @include transition(color, gap);
+
+  &::after {
+    content: '\2197' / '';
+  }
+
+  @include hover {
+    gap: space(2);
+    color: token(accent-hover);
+  }
+}

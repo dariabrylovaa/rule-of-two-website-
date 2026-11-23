@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Contact Rule of Two to discuss IT consulting and software development projects."
+  >
+  <title>Contact | Rule of Two</title>
+</head>
+
+<body>
+  <header class="site-header">
+  <a class="site-header__logo"
+     href="./index.html"
+     aria-label="Rule of Two home">
+    RULE OF TWO
+  </a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <ul class="site-nav__list">
+      <li>
+        <a href="./index.html"
+           data-i18n="nav.home"
+           >
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a href="./services.html"
+           data-i18n="nav.services"
+           >
+          Services
+        </a>
+      </li>
+
+      <li>
+        <a href="./cases.html"
+           data-i18n="nav.cases"
+           >
+          Case Studies
+        </a>
+      </li>
+
+      <li>
+        <a href="./index.html#about" data-i18n="nav.about">
+          About
+        </a>
+      </li>
+
+      <li>
+        <a href="./contact.html"
+           data-i18n="nav.contact"
+           aria-current="page">
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <a class="site-header__cta"
+     href="./contact.html"
+     data-i18n="common.startProject">
+    Start a Project
+  </a>
+</header>
+
+  <main>
+    <!-- HERO -->
+    <section class="contact-hero" aria-labelledby="contact-title">
+      <p data-i18n="contact.label">Let's Talk</p>
+
+      <h1 id="contact-title" data-i18n="contact.title">
+        Your next big idea starts here.
+      </h1>
+
+      <p data-i18n="contact.description">
+        Tell us what you're thinking. Whether you have a clear
+        brief or a challenge to explore, we'd love to help
+        you find the right way forward.
+      </p>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="contact" aria-labelledby="contact-form-title">
+      <div class="contact__form-container">
+        <h2 id="contact-form-title">
+          Let's build something together.
+        </h2>
+
+        <p>Fields marked with * are required.</p>
+
+        <!-- Form processing will be implemented in Lab 4 -->
+        <form
+          class="contact-form"
+          id="contact-form"
+          action="#"
+          method="post"
+        >
+          <div class="contact-form__field">
+            <label for="contact-name">Name *</label>
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              placeholder="Your full name"
+              autocomplete="name"
+              required
+            >
+          </div>
+
+          <div class="contact-form__field">
+            <label for="contact-email">Email *</label>
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              placeholder="you@company.com"
+              autocomplete="email"
+              required
+            >
+          </div>
+
+          <div class="contact-form__field">
+            <label for="contact-company">Company</label>
+            <input
+              type="text"
+              id="contact-company"
+              name="company"
+              placeholder="Your company name"
+              autocomplete="organization"
+            >
+          </div>
+
+          <div class="contact-form__field">
+            <label for="contact-service">Service *</label>
+            <select
+              id="contact-service"
+              name="service"
+              required
+            >
+              <option value="" selected disabled>
+                Select a service
+              </option>
+              <option value="software">
+                Software Development
+              </option>
+              <option value="mobile">
+                Mobile Development
+              </option>
+              <option value="ai">
+                AI &amp; Machine Learning
+              </option>
+              <option value="cloud">
+                Cloud &amp; DevOps
+              </option>
+              <option value="analytics">
+                Data &amp; Analytics
+              </option>
+              <option value="consulting">
+                IT Consulting
+              </option>
+            </select>
+          </div>
+
+          <div class="contact-form__field">
+            <label for="contact-budget">
+              Estimated budget
+            </label>
+            <select id="contact-budget" name="budget">
+              <option value="" selected>
+                Select a budget range
+              </option>
+              <option value="under-5000">
+                Under $5,000
+              </option>
+              <option value="5000-10000">
+                $5,000 – $10,000
+              </option>
+              <option value="10000-25000">
+                $10,000 – $25,000
+              </option>
+              <option value="25000-50000">
+                $25,000 – $50,000
+              </option>
+              <option value="over-50000">
+                Over $50,000
+              </option>
+              <option value="undecided">
+                Not sure yet
+              </option>
+            </select>
+          </div>
+
+          <div class="contact-form__field">
+            <label for="contact-message">Message *</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="6"
+              placeholder="Tell us about your idea, goals and timeline..."
+              required
+            ></textarea>
+          </div>
+
+          <p class="contact-form__notice">
+            By sending this form, you agree to our
+            Privacy Policy. We'll only use your
+            details to respond to your inquiry.
+          </p>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <!-- CONTACT INFORMATION -->
+      <aside class="contact__information">
+        <h2>A conversation, not a sales pitch.</h2>
+
+        <p>
+          We'll read your message and get back to you
+          within two business days. Your first
+          conversation is always free.
+        </p>
+
+        <section aria-labelledby="contact-email-title">
+          <h3 id="contact-email-title">Write to us</h3>
+          <address>
+            <a href="mailto:hello@ruleoftwo.dev">
+              hello@ruleoftwo.dev
+            </a>
+          </address>
+        </section>
+
+        <section aria-labelledby="contact-location-title">
+          <h3 id="contact-location-title">Where we work</h3>
+          <p>Remote-first. Connected worldwide.</p>
+        </section>
+
+        <section aria-labelledby="contact-hours-title">
+          <h3 id="contact-hours-title">Working hours</h3>
+          <p>Monday–Friday · 09:00–18:00 UTC</p>
+        </section>
+      </aside>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" aria-labelledby="faq-title">
+      <p data-i18n="faq.label">Before We Begin</p>
+
+      <h2 id="faq-title" data-i18n="faq.title">
+        A few good questions.
+      </h2>
+
+      <p>The details that make starting a little easier.</p>
+
+      <div class="faq__list">
+        <details class="faq__item" open>
+          <summary>
+            What happens after I send my inquiry?
+          </summary>
+          <p>
+            We review your goals and arrange an introductory call.
+            Together, we explore the scope, discuss next steps
+            and decide whether we're the right fit.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Can you help shape an early-stage idea?
+          </summary>
+          <p>
+            Yes. We can help define your goals,
+            identify priorities and turn your initial
+            concept into a practical development plan.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Do you work with existing products?
+          </summary>
+          <p>
+            Yes. We can review existing software,
+            improve its architecture and develop
+            additional features.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            How do you estimate timelines and budgets?
+          </summary>
+          <p>
+            We evaluate the project's requirements,
+            complexity and priorities before preparing
+            an initial estimate.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Who owns the code and intellectual property?
+          </summary>
+          <p>
+            Ownership and intellectual property terms
+            are defined in the project agreement.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+  <p>
+    <strong>RULE OF TWO</strong>
+  </p>
+
+  <p data-i18n="footer.description">
+    IT Consulting &amp; Software Development.
+  </p>
+
+  <p data-i18n="footer.tagline">
+    Two minds. One powerful solution.
+  </p>
+
+  <nav aria-label="Footer navigation">
+    <ul>
+      <li>
+        <a href="./index.html" data-i18n="nav.home">Home</a>
+      </li>
+      <li>
+        <a href="./services.html" data-i18n="nav.services">
+          Services
+        </a>
+      </li>
+      <li>
+        <a href="./cases.html" data-i18n="nav.cases">
+          Case Studies
+        </a>
+      </li>
+      <li>
+        <a href="./contact.html" data-i18n="nav.contact">
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <address>
+    <a href="mailto:hello@ruleoftwo.dev">
+      hello@ruleoftwo.dev
+    </a>
+  </address>
+
+  <p>Open to ambitious ideas</p>
+
+  <p data-i18n="footer.copyright">
+    © 2026 RULE OF TWO. All rights reserved.
+  </p>
+</footer>
+</body>
+</html>

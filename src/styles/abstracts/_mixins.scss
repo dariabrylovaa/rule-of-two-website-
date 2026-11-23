@@ -1,0 +1,201 @@
+// =============================================================================
+// ABSTRACTS / MIXINS
+// Media queries, flex & grid layout, typography, accessibility, motion.
+// =============================================================================
+@use 'sass:list';
+@use 'sass:map';
+@use 'variables' as *;
+@use 'functions' as *;
+
+// -----------------------------------------------------------------------------
+// Media queries (mobile-first)
+// -----------------------------------------------------------------------------
+@mixin respond-to($breakpoint) {
+  @media (min-width: bp($breakpoint)) {
+    @content;
+  }
+}
+
+@mixin respond-below($breakpoint) {
+  @media (max-width: bp($breakpoint) - 0.02px) {
+    @content;
+  }
+}
+
+@mixin respond-between($from, $to) {
+  @media (min-width: bp($from)) and (max-width: bp($to) - 0.02px) {
+    @content;
+  }
+}
+
+// Hover styles only for devices that can actually hover
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// Responsive values from a map: @include responsive(gap, (base: 16px, lg: 24px))
+@mixin responsive($property, $values) {
+  @each $bp, $value in $values {
+    @if $bp == base {
+      #{$property}: rem($value);
+    } @else {
+      @include respond-to($bp) {
+        #{$property}: rem($value);
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Flexbox
+// -----------------------------------------------------------------------------
+@mixin flex($direction: row, $justify: null, $align: null, $gap: null, $wrap: null) {
+  display: flex;
+
+  @if $direction != row {
+    flex-direction: $direction;
+  }
+
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+  gap: rem($gap);
+}
+
+@mixin flex-center($gap: null) {
+  @include flex($justify: center, $align: center, $gap: $gap);
+}
+
+@mixin flex-between($align: center, $gap: null) {
+  @include flex($justify: space-between, $align: $align, $gap: $gap);
+}
+
+@mixin flex-column($gap: null, $align: null) {
+  @include flex(column, $align: $align, $gap: $gap);
+}
+
+// -----------------------------------------------------------------------------
+// CSS Grid
+// -----------------------------------------------------------------------------
+@mixin grid($columns: 1, $gap: null, $row-gap: null) {
+  display: grid;
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+  gap: rem($gap);
+  row-gap: rem($row-gap);
+}
+
+// Responsive column count: @include grid-columns((base: 1, md: 2, lg: 3))
+@mixin grid-columns($map) {
+  @each $bp, $count in $map {
+    @if $bp == base {
+      grid-template-columns: repeat($count, minmax(0, 1fr));
+    } @else {
+      @include respond-to($bp) {
+        grid-template-columns: repeat($count, minmax(0, 1fr));
+      }
+    }
+  }
+}
+
+@mixin grid-auto-fit($min-width, $gap: null) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(#{rem($min-width)}, 100%), 1fr));
+  gap: rem($gap);
+}
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+@mixin typography($style) {
+  $settings: map-get-strict($type-scale, $style, 'type style');
+  $size: map.get($settings, size);
+
+  font-size: fluid(list.nth($size, 1), list.nth($size, 2));
+  font-weight: weight(map.get($settings, weight));
+  line-height: map.get($settings, line-height);
+  letter-spacing: map.get($settings, tracking);
+  text-transform: map.get($settings, transform);
+}
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// -----------------------------------------------------------------------------
+// Resets & accessibility
+// -----------------------------------------------------------------------------
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin reset-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@mixin focus-ring($offset: 3px, $radius: null) {
+  &:focus-visible {
+    outline: 2px solid token(accent);
+    outline-offset: $offset;
+    border-radius: $radius;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Motion
+// -----------------------------------------------------------------------------
+@mixin transition($properties...) {
+  transition-property: $properties;
+  transition-duration: duration(base);
+  transition-timing-function: $ease-out;
+}
+
+@mixin animate($name, $duration: slow, $delay: 0ms, $easing: $ease-out, $fill: both) {
+  animation: $name duration($duration) $easing $delay $fill;
+}
+
+// Scroll-driven reveal (progressive enhancement, no JS required)
+@mixin reveal-on-scroll($name: slide-up) {
+  @supports (animation-timeline: view()) {
+    animation: $name linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Misc
+// -----------------------------------------------------------------------------
+@mixin pseudo($content: '', $position: absolute) {
+  content: $content;
+  position: $position;
+}
+
+@mixin size($width, $height: $width) {
+  width: rem($width);
+  height: rem($height);
+}

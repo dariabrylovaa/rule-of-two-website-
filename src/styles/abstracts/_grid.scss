@@ -1,0 +1,90 @@
+// =============================================================================
+// ABSTRACTS / GRID
+// Custom grid system mixins: container, row, col with gutter support.
+//
+// The row uses `gap` for gutters, so columns need no inner padding and any
+// component can be a column itself. Column width formula:
+//   (100% - (columns - 1) * gutter) * span / columns + (span - 1) * gutter
+// =============================================================================
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+@use 'variables' as *;
+@use 'functions' as *;
+@use 'mixins' as *;
+
+// Centered, max-width wrapper with responsive side margins
+@mixin make-container($max-width: $container-max-width, $paddings: $container-paddings) {
+  width: 100%;
+  max-width: rem($max-width + 2 * map.get($paddings, lg));
+  margin-inline: auto;
+
+  @include responsive(padding-inline, $paddings);
+}
+
+// Exposes the gutter as a custom property so columns can use it in calc()
+@mixin grid-gutters($gutters: $grid-gutters) {
+  @include responsive(--grid-gutter, $gutters);
+}
+
+// Flex row. $gutters may be a map (responsive) or a single length.
+@mixin make-row($gutters: $grid-gutters, $row-gap: null) {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--grid-gutter);
+
+  @if $row-gap {
+    row-gap: rem($row-gap);
+  } @else {
+    row-gap: var(--grid-gutter);
+  }
+
+  // Declarations first, responsive overrides (nested @media) last
+  @if meta.type-of($gutters) == 'map' {
+    @include grid-gutters($gutters);
+  } @else {
+    --grid-gutter: #{rem($gutters)};
+  }
+}
+
+@function col-width($span, $columns: $grid-columns) {
+  @if $span >= $columns {
+    @return 100%;
+  }
+
+  $ratio: round-to(math.div($span, $columns), 6);
+
+  @return calc((100% - #{$columns - 1} * var(--grid-gutter)) * #{$ratio} + #{$span - 1} * var(--grid-gutter));
+}
+
+// Fixed-span column: @include make-col(4) → 4 of 12
+@mixin make-col($span, $columns: $grid-columns) {
+  flex: 0 0 auto;
+  width: col-width($span, $columns);
+  min-width: 0;
+}
+
+// Column that fills the remaining space
+@mixin make-col-auto {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+@mixin make-col-offset($span, $columns: $grid-columns) {
+  $ratio: round-to(math.div($span, $columns), 6);
+
+  margin-inline-start: calc((100% - #{$columns - 1} * var(--grid-gutter)) * #{$ratio} + #{$span} * var(--grid-gutter));
+}
+
+// Responsive spans in one call: @include make-col-responsive((base: 12, md: 6, lg: 4))
+@mixin make-col-responsive($spans, $columns: $grid-columns) {
+  @each $bp, $span in $spans {
+    @if $bp == base {
+      @include make-col($span, $columns);
+    } @else {
+      @include respond-to($bp) {
+        width: col-width($span, $columns);
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+// =============================================================================
+// COMPONENTS / CHIP
+// Pills for technology tags (Services → Toolkit) and category filters
+// (Case Studies). Filter state is driven by aria-pressed.
+// =============================================================================
+@use '../abstracts' as *;
+
+.chip-list {
+  @extend %reset-list;
+  @include flex($wrap: wrap, $gap: space(2));
+}
+
+.chip {
+  @extend %pill;
+  @extend %type-caption;
+
+  min-height: rem(32px);
+  padding-inline: space(4);
+  border-color: token(border-strong);
+  color: token(text);
+
+  &--button {
+    min-height: rem(36px);
+    background-color: transparent;
+    cursor: pointer;
+
+    @include transition(background-color, border-color, color);
+
+    @include hover {
+      border-color: token(accent);
+    }
+
+    &[aria-pressed='true'] {
+      border-color: token(accent);
+      color: token(on-accent);
+      background-color: token(accent);
+      font-weight: weight(semibold);
+    }
+  }
+}

@@ -1,0 +1,27 @@
+// =============================================================================
+// COMPONENTS / FEATURE
+// Icon + title + text, separated by a top rule ("Why Rule of Two").
+// =============================================================================
+@use '../abstracts' as *;
+
+.feature {
+  @include flex-column(space(3));
+
+  padding-top: space(6);
+  border-top: $border-width solid token(border);
+
+  &__icon {
+    margin-bottom: space(2);
+    color: token(accent);
+  }
+
+  &__title {
+    @extend %type-h4;
+  }
+
+  &__text {
+    @extend %type-small;
+
+    max-width: rem(360px);
+  }
+}

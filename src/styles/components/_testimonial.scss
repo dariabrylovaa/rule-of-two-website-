@@ -1,0 +1,46 @@
+// =============================================================================
+// COMPONENTS / TESTIMONIAL
+// =============================================================================
+@use '../abstracts' as *;
+
+.testimonial {
+  @extend %surface-card-sunken;
+  @include flex-column(space(5));
+
+  padding: fluid(24px, 32px);
+
+  &__label {
+    margin: 0;
+  }
+
+  &__quote {
+    flex-grow: 1;
+    color: token(text);
+    font-size: fluid(17px, 20px);
+    line-height: 1.5;
+    quotes: '\201C' '\201D';
+
+    p::before {
+      content: open-quote;
+    }
+
+    p::after {
+      content: close-quote;
+    }
+  }
+
+  &__author {
+    @include flex($align: center, $gap: space(3));
+    @extend %type-caption;
+  }
+
+  &__avatar {
+    @include flex-center;
+    @include size(32px);
+
+    border-radius: 50%;
+    color: token(text);
+    background-color: token(surface);
+    font-size: rem(11px);
+  }
+}
